@@ -1,0 +1,113 @@
+body{
+    background-color: hsl(0, 0%, 100%);
+  }
+
+  .link{
+    font-size:20px;
+  }
+
+  .card-title {
+    font-size:25px !important;
+  }
+
+/* General styles */
+
+.fixed-button {
+  position: fixed;
+  top: 550px;
+  right: 0px;
+  z-index: 10;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.fixed-button:hover {
+  background-color: #ff0000;
+}
+
+/* Side navigation styles */
+.sidenav {
+  height: 100%; /* Full height */
+  width: 0; /* Initially hidden */
+  position: fixed; /* Stay in place */
+  z-index: 20; /* Stay on top */
+  top: 0;
+  opacity: 0.9;
+  background-color: #111; /* Black background */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* Smooth slide-in effect */
+  padding-top: 60px; /* Padding at the top */
+}
+
+.sidenav a {
+  padding: 10px 8px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.mainF {
+  color: white;
+}
+
+.mainF button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 18px;
+  margin: 10px 5px;
+  transition: 0.3s;
+}
+
+.mainF button:hover {
+  background-color: #0056b3;
+}
+
+/* Portfolio filter buttons */
+#portfilter {
+  margin-top: 20px;
+}
+
+#portfilter button {
+  background-color: #6c757d;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+#portfilter button:hover {
+  background-color: #343a40;
+}
+
+/* Responsive adjustments */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}

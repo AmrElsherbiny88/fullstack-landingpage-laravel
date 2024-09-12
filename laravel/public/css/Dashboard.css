@@ -1,0 +1,26 @@
+
+/* loading page start */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  transition: opacity 0.75s, visibility 0.75s;
+  z-index: 9999999999999999;
+}
+
+.loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+
+/* loading page end */
+
+

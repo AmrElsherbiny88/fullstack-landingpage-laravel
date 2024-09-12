@@ -1,0 +1,23 @@
+.carousel-control-next{
+    background-color: rgba(0, 0, 0, 0.356);
+}
+
+.carousel-control-prev{
+    background-color: rgba(0, 0, 0, 0.356);
+}
+
+.data{
+    background-color: black;
+  
+}
+
+.data-text{
+    color: white !important;
+}
+
+.proj-client-logo{
+    width: 150px;
+    height: 150px;
+
+}
+
