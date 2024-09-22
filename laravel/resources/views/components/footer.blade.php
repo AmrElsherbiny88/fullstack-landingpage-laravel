@@ -99,7 +99,7 @@
       </li>
 
       <li>
-        <a href="/contact" class="footerrr-link">Contact us</a>
+        <a href="/contactUs" class="footerrr-link">Contact us</a>
       </li>
 
     </ul>
@@ -153,15 +153,7 @@
     <ul class="footerrr-bottom-list">
 
       <li>
-        <a href="#" class="footerrr-bottom-link">Privacy Policy</a>
-      </li>
-
-      <li>
-        <a href="#" class="footerrr-bottom-link">Security</a>
-      </li>
-
-      <li>
-        <a href="#" class="footerrr-bottom-link">Terms & Conditions</a>
+        <a href="/TermsandConditions" class="footerrr-bottom-link">Terms & Conditions</a>
       </li>
 
     </ul>

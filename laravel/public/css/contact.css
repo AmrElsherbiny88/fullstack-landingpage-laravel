@@ -26,6 +26,7 @@
     cursor: grab;
   }
   
+
   .icons svg {
     width: 20px;
     height: 20px;
@@ -376,4 +377,10 @@
     border-radius:5px;
     padding: 5px;
     outline:none;
+  }
+
+
+  .map iframe{
+    width: 100% !important;
+    height: 250px !important;
   }

@@ -17,78 +17,33 @@
 
     <!-- loading page start -->
     <x-loading />
-    <!-- loading page end -->
+    <!-- loading page end -->+
 
     <x-Navbar />
 
     <section class="containerrr text-center col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-top:150px;">
         <div class="row">
+          
+
+@foreach ($projects as $item)
             <div data-aos="fade-up" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-5">
                 <div class="card" style="">
-                    <img src="{{ asset('images/features-banner-2.png') }}" class="card-img-top" alt="...">
+                    <img src="{{ $item->Thumbnail }}" class="card-img-top" alt="..." style="width: 100%; height: 200px;">
                     <div class="card-body">
-                        <h5 class="card-title h2">Card title</h5>
-                        <p class="card-text summ">Some quick example text to build on the card title and make up the
-                            bulk of the card's content.</p>
-                        <a href="/projectDetails" class="btn btn-primary link text-white">See the project</a>
-                    </div>
-                </div>
-            </div>
-            <div data-aos="fade-up" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-5">
-                <div class="card" style="">
-                    <img src="{{ asset('images/features-banner-2.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title h2">Card title</h5>
-                        <p class="card-text summ">Some quick example text to build on the card title and make up the
-                            bulk of the card's content.</p>
-                        <a href="/projectDetails" class="btn btn-primary link text-white">See the project</a>
+                        <h5 class="card-title h2">{{$item->title}}</h5>
+                        <p class="card-text summ">{{$item->project_summary}}</p>
+                        <a href="{{ route('projectdetails', $item->id) }}" class="btn btn-primary link text-white">See the project</a>
                     </div>
                 </div>
             </div>
 
-            <div data-aos="fade-up" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-5">
-                <div class="card" style="">
-                    <img src="{{ asset('images/features-banner-2.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title h2">Card title</h5>
-                        <p class="card-text summ">Some quick example text to build on the card title and make up the
-                            bulk of the card's content.</p>
-                        <a href="/projectDetails" class="btn btn-primary link text-white">See the project</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div data-aos="fade-up" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-5">
-                <div class="card" style="">
-                    <img src="{{ asset('images/features-banner-2.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title h2">Card title</h5>
-                        <p class="card-text summ">Some quick example text to build on the card title and make up the
-                            bulk of the card's content.</p>
-                        <a href="/projectDetails" class="btn btn-primary link text-white">See the project</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div data-aos="fade-up" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-5">
-                <div class="card" style="">
-                    <img src="{{ asset('images/features-banner-2.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title h2">Card title</h5>
-                        <p class="card-text summ">Some quick example text to build on the card title and make up the
-                            bulk of the card's content.</p>
-                        <a href="/projectDetails" class="btn btn-primary link text-white">See the project</a>
-                    </div>
-                </div>
-            </div>
+ @endforeach
         </div>
     </section>
 
 
 
-
+{{-- 
     <!-- filter start -->
     <span onclick="openfilter()">
 
@@ -121,7 +76,7 @@
         </div>
 
     </div>
-    <!-- filter end -->
+    <!-- filter end --> --}}
 
 
 
@@ -145,7 +100,7 @@
     <x-footer />
 
 
-
+{{-- 
     <!-- filter bar script -->
     <script>
         function openfilter() {
@@ -231,7 +186,7 @@
             document.getElementById("portfilter").style.display = "block";
         });
     </script>
-
+ --}}
 
 
 

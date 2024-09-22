@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\contact;
+use App\Models\services;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -41,18 +42,12 @@ class ContactController extends Controller
 
     public function update(Request $request, $id)
 {
+    // dd($request);
     // Find the existing project by its ID
     $contactdata = contact::findOrFail($id);
 
-    // Validate the incoming request
-    $validatedData = $request->validate([
-        'Platform' => 'required|max:255',
-        'URL' => 'required',
-        
-    ]);
 
     // Update the text fields
-    $contactdata->Platform = $request->input('Platform');
     $contactdata->URL = $request->input('URL');
 
   
@@ -62,6 +57,7 @@ class ContactController extends Controller
     // Redirect or show a success message
     return redirect()->route('addcontact');
 }
+
 
 
 }

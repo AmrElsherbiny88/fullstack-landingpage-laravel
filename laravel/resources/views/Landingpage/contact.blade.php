@@ -48,7 +48,7 @@
 <section data-aos="fade-down" class="container formm  col-xl-12 col-md-12 col-lg-12 col-sm-12 mt-5 mb-6">
 <div data-aos="fade-up" class="carddd">
   <img
-    src="https://uiverse.io/build/_assets/astronaut-WTFWARES.png"
+    src="{{ asset('images/contactmesh.png') }}"
     alt=""
     class="image"
   />
@@ -63,11 +63,13 @@
     <!-- Section: Social media -->
     <section data-aos="fade-up" class="mb-4">
       <!-- Facebook -->
+
+      @foreach ($facebook as $item)
       <a
       data-mdb-ripple-init
         class="btn text-white btn-floating m-1"
         style="background-color: #3b5998; scale:0.9;"
-        href="#!"
+        href="{{$item->URL}}"
         role="button"
         >
         
@@ -76,13 +78,17 @@
 </svg>
 
 </a>
+      @endforeach
+   
 
+
+      @foreach ($twitter as $item)
       <!-- Twitter -->
       <a
         data-mdb-ripple-init
         class="btn text-white btn-floating m-1"
         style="background-color: #55acee; scale:0.9;"
-        href="#!"
+        href="{{$item->URL}}"
         role="button"
         >
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="20" viewBox="0,0,256,256">
@@ -90,39 +96,47 @@
 </svg>
     
     </a>
+    @endforeach
 
+    @foreach ($email as $item)
       <!-- Google -->
       <a
         data-mdb-ripple-init
         class="btn text-white btn-floating m-1"
         style="background-color: #dd4b39; scale:0.9;"
-        href="#!"
+         href="mailto:{{$item->URL}}"
         role="button"
         >
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="20" viewBox="0,0,256,256">
 <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M25.99609,48c-12.68359,0 -23.00391,-10.31641 -23.00391,-23c0,-12.68359 10.32031,-23 23.00391,-23c5.74609,0 11.24609,2.12891 15.49219,5.99609l0.77344,0.70703l-7.58594,7.58594l-0.70312,-0.60156c-2.22656,-1.90625 -5.05859,-2.95703 -7.97656,-2.95703c-6.76562,0 -12.27344,5.50391 -12.27344,12.26953c0,6.76563 5.50781,12.26953 12.27344,12.26953c4.87891,0 8.73438,-2.49219 10.55078,-6.73828h-11.55078v-10.35547l22.55078,0.03125l0.16797,0.79297c1.17578,5.58203 0.23438,13.79297 -4.53125,19.66797c-3.94531,4.86328 -9.72656,7.33203 -17.1875,7.33203z"></path></g></g>
 </svg>
-    </a>
+    </a> 
+    @endforeach
 
+
+    @foreach ($instagram as $item)
       <!-- Instagram -->
       <a
         data-mdb-ripple-init
         class="btn text-white btn-floating m-1"
         style="background-color: #ac2bac;  scale:0.9 ;"
-        href="#!"
+        href="{{$item->URL}}"
         role="button"
         >
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="20" viewBox="0,0,256,256">
 <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M16,3c-7.17,0 -13,5.83 -13,13v18c0,7.17 5.83,13 13,13h18c7.17,0 13,-5.83 13,-13v-18c0,-7.17 -5.83,-13 -13,-13zM37,11c1.1,0 2,0.9 2,2c0,1.1 -0.9,2 -2,2c-1.1,0 -2,-0.9 -2,-2c0,-1.1 0.9,-2 2,-2zM25,14c6.07,0 11,4.93 11,11c0,6.07 -4.93,11 -11,11c-6.07,0 -11,-4.93 -11,-11c0,-6.07 4.93,-11 11,-11zM25,16c-4.96,0 -9,4.04 -9,9c0,4.96 4.04,9 9,9c4.96,0 9,-4.04 9,-9c0,-4.96 -4.04,-9 -9,-9z"></path></g></g>
 </svg>
     </a>
+    @endforeach
 
+
+    @foreach ($linkedin as $item)
       <!-- Linkedin -->
       <a
         data-mdb-ripple-init
         class="btn text-white btn-floating m-1"
         style="background-color: #0082ca; scale:0.9;"
-        href="#!"
+        href="{{$item->URL}}"
         role="button"
         >
         
@@ -131,18 +145,27 @@
 </svg>
     
     </a>
+
+    @endforeach
+
+    {{-- @foreach ($github as $item)
       <!-- Github -->
+
       <a
         data-mdb-ripple-init
         class="btn text-white btn-floating m-1"
         style="background-color: #333333; scale:0.9;"
-        href="#!"
+         href="{{$item->URL}}"
         role="button"
         >
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="20" viewBox="0,0,256,256">
 <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M17.791,46.836c0.711,-0.306 1.209,-1.013 1.209,-1.836v-5.4c0,-0.197 0.016,-0.402 0.041,-0.61c-0.014,0.004 -0.027,0.007 -0.041,0.01c0,0 -3,0 -3.6,0c-1.5,0 -2.8,-0.6 -3.4,-1.8c-0.7,-1.3 -1,-3.5 -2.8,-4.7c-0.3,-0.2 -0.1,-0.5 0.5,-0.5c0.6,0.1 1.9,0.9 2.7,2c0.9,1.1 1.8,2 3.4,2c2.487,0 3.82,-0.125 4.622,-0.555c0.934,-1.389 2.227,-2.445 3.578,-2.445v-0.025c-5.668,-0.182 -9.289,-2.066 -10.975,-4.975c-3.665,0.042 -6.856,0.405 -8.677,0.707c-0.058,-0.327 -0.108,-0.656 -0.151,-0.987c1.797,-0.296 4.843,-0.647 8.345,-0.714c-0.112,-0.276 -0.209,-0.559 -0.291,-0.849c-3.511,-0.178 -6.541,-0.039 -8.187,0.097c-0.02,-0.332 -0.047,-0.663 -0.051,-0.999c1.649,-0.135 4.597,-0.27 8.018,-0.111c-0.079,-0.5 -0.13,-1.011 -0.13,-1.543c0,-1.7 0.6,-3.5 1.7,-5c-0.5,-1.7 -1.2,-5.3 0.2,-6.6c2.7,0 4.6,1.3 5.5,2.1c1.699,-0.701 3.599,-1.101 5.699,-1.101c2.1,0 4,0.4 5.6,1.1c0.9,-0.8 2.8,-2.1 5.5,-2.1c1.5,1.4 0.7,5 0.2,6.6c1.1,1.5 1.7,3.2 1.6,5c0,0.484 -0.045,0.951 -0.11,1.409c3.499,-0.172 6.527,-0.034 8.204,0.102c-0.002,0.337 -0.033,0.666 -0.051,0.999c-1.671,-0.138 -4.775,-0.28 -8.359,-0.089c-0.089,0.336 -0.197,0.663 -0.325,0.98c3.546,0.046 6.665,0.389 8.548,0.689c-0.043,0.332 -0.093,0.661 -0.151,0.987c-1.912,-0.306 -5.171,-0.664 -8.879,-0.682c-1.665,2.878 -5.22,4.755 -10.777,4.974v0.031c2.6,0 5,3.9 5,6.6v5.4c0,0.823 0.498,1.53 1.209,1.836c9.161,-3.032 15.791,-11.672 15.791,-21.836c0,-12.682 -10.317,-23 -23,-23c-12.683,0 -23,10.318 -23,23c0,10.164 6.63,18.804 15.791,21.836z"></path></g></g>
 </svg>
     </a>
+
+    
+    @endforeach --}}
+
     </section>
     <!-- Section: Social media -->
   </div>
@@ -162,10 +185,17 @@
         <h1 class="h1">Our location</h1>
         <h2 class="h2">We're waiting you come and visit us</h2>
      </div>
-
-     <div data-aos="fade-up" class="col-xl-6 col-md-6 col-lg-6 col-sm-6 ">
-     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d419738.1966716615!2d31.31320465156564!3d30.154189541006048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1457f16b7caf5f6f%3A0xbb8ee6c4b1d8daf0!2sFuture%20Office%20Furniture!5e1!3m2!1sen!2seg!4v1723112884343!5m2!1sen!2seg" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+     @foreach ($Maplocation as $item)
+         
+  
+     <div data-aos="fade-up" class="col-xl-6 col-md-6 col-lg-6 col-sm-6 " >
+      <div class="map">
+        {!!$item->URL!!}
+      </div>  
      </div>
+
+     @endforeach
    </div>
 </section>
 

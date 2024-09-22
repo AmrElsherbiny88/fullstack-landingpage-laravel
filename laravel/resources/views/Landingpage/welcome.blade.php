@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Runsoft - Make development Easy</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!--
     - custom css link
@@ -28,7 +29,7 @@
     <link rel="preload" as="image" href="{{ asset('images/hero-banner.png') }}">
 </head>
 
-<body  id="top">
+<body id="top">
 
     <!--
     - #HEADER
@@ -66,53 +67,9 @@
                             marketing, website programming, advertisements, and marketing plans
                         </p>
 
-                        <form action="" class="hero-form">
-                            <input type="email" name="email_address"
-                                placeholder="Enter Your Email and we will call you"
-                                aria-label="Enter Your Email and we will call you" required class="input-field">
+                 
 
-                            <button type="submit" class="btnn btnn-primary">Send</button>
-                        </form>
-
-                        <ul class="hero-list">
-
-                            <li class="hero-item">
-                                <img src="{{ asset('images/check-circle.svg') }}" width="16" height="16"
-                                    loading="lazy" alt="Checkmark icon">
-
-                                <span class="span">Development</span>
-                            </li>
-
-                            <li class="hero-item">
-                                <img src="{{ asset('images/check-circle.svg') }}" width="16" height="16"
-                                    loading="lazy" alt="Checkmark icon">
-
-                                <span class="span">Marketing</span>
-                            </li>
-
-                            <li class="hero-item">
-                                <img src="{{ asset('images/check-circle.svg') }}" width="16" height="16"
-                                    loading="lazy" alt="Checkmark icon">
-
-                                <span class="span">ADs</span>
-                            </li>
-
-                            <li class="hero-item">
-                                <img src="{{ asset('images/check-circle.svg') }}" width="16" height="16"
-                                    loading="lazy" alt="Checkmark icon">
-
-                                <span class="span">plans</span>
-                            </li>
-
-                            <li class="hero-item">
-                                <img src="{{ asset('images/check-circle.svg') }}" width="16" height="16"
-                                    loading="lazy" alt="Checkmark icon">
-
-                                <span class="span">social media identity</span>
-                            </li>
-
-                        </ul>
-
+                        
                     </div>
                 </div>
             </section>
@@ -132,79 +89,29 @@
                     </p>
 
                     <ul class="service-list">
+                        @foreach ($solutions as $dol)
+                            <li data-aos="fade-up">
+                                <div class="service-card" style="width: 291.6px ;">
 
-                        <li data-aos="fade-up">
-                            <div class="service-card">
+                                    <figure class="card-banner">
+                                        <img src=" {{ $dol->image }}" style="width: 291.6px ; height: 137.79px;" width="291.6px" height="137.79px" loading="lazy"
+                                            alt="support" class="w-100 h-100">
+                                    </figure>
 
-                                <figure class="card-banner">
-                                    <img src="{{ asset('images/service-1.gif') }}" width="728" height="344"
-                                        loading="lazy" alt="support" class="w-100">
-                                </figure>
+                                    <div class="card-content">
 
-                                <div class="card-content">
+                                        <h3 class="h3">
+                                            <a href="#" class="card-title"> {{ $dol->Title }}</a>
+                                        </h3>
 
-                                    <h3 class="h3">
-                                        <a href="#" class="card-title">Support</a>
-                                    </h3>
-
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet nulla
-                                        duis consectetur
-                                        adipiscing elit.
-                                    </p>
+                                        <p class="card-text">
+                                            {{ $dol->description }}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        @endforeach
 
-                        <li data-aos="fade-up">
-                            <div class="service-card">
-
-                                <figure class="card-banner">
-                                    <img src="{{ asset('images/service-2.gif') }}" width="728" height="344"
-                                        loading="lazy" alt="Engagement" class="w-100">
-                                </figure>
-
-                                <div class="card-content">
-
-                                    <h3 class="h3">
-                                        <a href="#" class="card-title">full identity</a>
-                                    </h3>
-
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet nulla
-                                        duis consectetur
-                                        adipiscing elit.
-                                    </p>
-
-                                </div>
-
-                            </div>
-                        </li>
-
-                        <li data-aos="fade-up">
-                            <div class="service-card">
-
-                                <figure class="card-banner">
-                                    <img src="{{ asset('images/service-3.gif') }}" width="728" height="344"
-                                        loading="lazy" alt="Marketing" class="w-100">
-                                </figure>
-
-                                <div class="card-content">
-
-                                    <h3 class="h3">
-                                        <a href="#" class="card-title">Full marketing plans</a>
-                                    </h3>
-
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet nulla
-                                        duis consectetur
-                                        adipiscing elit.
-                                    </p>
-
-                                </div>
-
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </section>
@@ -227,34 +134,14 @@
                         </p>
 
                         <ul class="features-list">
+                            @foreach ($features as $feature)
+                                <li data-aos="fade-right" class="features-item">
+                                    <img src="{{ $feature->icon }}" width="26" height="26" loading="lazy"
+                                        aria-hidden="true" class="item-icon">
 
-                            <li data-aos="fade-right" class="features-item">
-                                <img src="{{ asset('images/features-icon-1.svg') }}" width="26" height="26"
-                                    loading="lazy" aria-hidden="true" class="item-icon">
-
-                                <h3 class="item-title">high quality social marketing</h3>
-                            </li>
-
-                            <li data-aos="fade-right" class="features-item">
-                                <img src="{{ asset('images/features-icon-2.svg') }}" width="26" height="26"
-                                    loading="lazy" aria-hidden="true" class="item-icon">
-
-                                <h3 class="item-title">Fast work </h3>
-                            </li>
-
-                            <li data-aos="fade-right" class="features-item">
-                                <img src="{{ asset('images/features-icon-3.svg') }}" width="26" height="26"
-                                    loading="lazy" aria-hidden="true" class="item-icon">
-
-                                <h3 class="item-title">High quality</h3>
-                            </li>
-
-                            <li data-aos="fade-right" class="features-item">
-                                <img src="{{ asset('images/features-icon-4.svg') }}" width="26" height="26"
-                                    loading="lazy" aria-hidden="true" class="item-icon">
-
-                                <h3 class="item-title">support</h3>
-                            </li>
+                                    <h3 class="item-title">{{ $feature->description }}</h3>
+                                </li>
+                            @endforeach
 
                         </ul>
 
@@ -294,57 +181,65 @@
                     </p>
 
                     <ul class="about-list">
-
+                        @foreach ($service1 as $service)
                         <li data-aos="fade-down">
                             <div class="about-card about-card-2">
-
+      
+                            
+                                    
+                          
                                 <figure class="card-banner">
-                                    <img src="{{ asset('images/about-img-2.svg') }}" width="94" height="94"
+                                    <img src="{{ $service->image }}" width="94" height="94"
                                         loading="lazy" alt="Workflow Automation">
                                 </figure>
 
                                 <div class="card-content">
 
                                     <h3 class="h3">
-                                        <a href="/ServiceDetails" class="card-title">Web development</a>
+                                        <a href="{{route('ServiceDetails',$service->id)}}" class="card-title">{{ $service->Title }}</a>
                                     </h3>
 
                                     <p class="card-text">
-                                        Lorem ipsum dolor sit amet, consect etur adipiscing elit.
+                                        {{ $service->description }}
                                     </p>
 
-                                    <a href="/ServiceDetails" class="btn-link">
-                                        <span class="span">Learn More</span>
+                                    <a href="{{route('ServiceDetails',$service->id)}}" class="btn btn-transparent text-white ">
+                                        <h3 class="span">Learn More</h3>
+
 
                                     </a>
 
                                 </div>
                             </div>
                         </li>
+                        @endforeach
 
 
 
-
+                       @foreach ($service2 as $service)
+                           
+        
                         <li data-aos="fade-up">
                             <div class="about-card about-card-3">
 
                                 <figure class="card-banner">
-                                    <img src="{{ asset('images/about-img-3.svg') }}" width="94" height="94"
+                                    <img src="{{ $service->image }}" width="94" height="94"
                                         loading="lazy" alt="Automated Callback">
                                 </figure>
 
                                 <div class="card-content">
 
                                     <h3 class="h3">
-                                        <a href="/ServiceDetails" class="card-title">Mobile App development</a>
+                                        <a href="{{route('ServiceDetails',$service->id)}}" class="card-title">{{ $service->Title }}</a>
                                     </h3>
 
                                     <p class="card-text">
-                                        Lorem ipsum dolor sit amet, consect etur adipiscing elit.
+                                        {{ $service->description }}
                                     </p>
 
-                                    <a href="/ServiceDetails" class="btn-link">
-                                        <span class="span">Learn More</span>
+                                    <a href="{{route('ServiceDetails',$service->id)}}" class="btn btn-transparent text-white ">
+                                        <h3 class="span">Learn More</h3>
+
 
                                     </a>
 
@@ -353,57 +248,63 @@
                             </div>
                         </li>
 
+                        @endforeach
+
+
+                        @foreach ($service3 as $service)
+                            
                         <li data-aos="fade-up">
                             <div class="about-card about-card-1">
 
                                 <figure class="card-banner">
-                                    <img src="{{ asset('images/about-img-1.svg') }}" width="94" height="94"
+                                    <img src="{{ $service->image }}" width="94" height="94"
                                         loading="lazy" alt="Automated Ticket Routing">
                                 </figure>
 
                                 <div class="card-content">
 
                                     <h3 class="h3">
-                                        <a href="/ServiceDetails" class="card-title">Social media marketing and
-                                            ADs</a>
+                                        <a href="{{route('ServiceDetails',$service->id)}}" class="card-title">{{ $service->Title }}</a>
                                     </h3>
 
                                     <p class="card-text">
-                                        Lorem ipsum dolor sit amet, consect etur adipiscing elit.
+                                        {{ $service->description }}
                                     </p>
 
-                                    <a href="/ServiceDetails" class="btn-link">
-                                        <span class="span">Learn More</span>
+                                    <a href="{{route('ServiceDetails',$service->id)}}" class="btn btn-transparent text-white ">
+                                        <h3 class="span">Learn More</h3>
+
 
                                     </a>
-
                                 </div>
 
                             </div>
                         </li>
+                        @endforeach
 
 
+                        @foreach ($service4 as $service)
+                      
                         <li data-aos="fade-down">
                             <div class="about-card about-card-4">
 
                                 <figure class="card-banner">
-                                    <img src="{{ asset('images/about-img-4.svg') }}" width="94" height="94"
+                                    <img src="{{ $service->image }}" width="94" height="94"
                                         loading="lazy" alt="Customer Feedback Surveys">
                                 </figure>
 
                                 <div class="card-content">
 
                                     <h3 class="h3">
-                                        <a href="/ServiceDetails" class="card-title">Full identity and marketing
-                                            plans</a>
+                                        <a href="{{route('ServiceDetails',$service->id)}}" class="card-title">{{ $service->Title }}</a>
                                     </h3>
 
                                     <p class="card-text">
-                                        Lorem ipsum dolor sit amet, consect etur adipiscing elit.
+                                        {{ $service->description }}
                                     </p>
 
-                                    <a href="/ServiceDetails" class="btn-link">
-                                        <span class="span">Learn More</span>
+                                    <a href="{{route('ServiceDetails',$service->id)}}" class="btn btn-transparent text-white ">
+                                        <h3 class="span">Learn More</h3>
 
 
                                     </a>
@@ -412,7 +313,8 @@
 
                             </div>
                         </li>
-
+      
+                        @endforeach
                     </ul>
 
                     <p class="section-text">
@@ -436,56 +338,60 @@
                     </figure>
 
                     <ul class="stats-list">
-
+               
+                        @foreach ($stat1 as $stat)
                         <li data-aos="fade-right" class="stats-item red">
                             <h3 class="item-title">
-                                999
-                                <span class="span">million</span>
+                               {{$stat->Number}}
+                                <span class="span">  {{$stat->Numbertype}}</span>
                             </h3>
 
-                            <p class="stats-text">Website</p>
+                            <p class="stats-text">{{$stat->categorie}}</p>
                         </li>
+                        @endforeach
 
-
+                        @foreach ($stat2 as $stat)
                         <li data-aos="fade-right" class="stats-item green">
                             <h3 class="item-title">
-                                200
-                                <span class="span">thousand</span>
+                                {{$stat->Number}}
+                                <span class="span">{{$stat->Numbertype}}</span>
                             </h3>
 
-                            <p class="stats-text">Mobile Application</p>
+                            <p class="stats-text">{{$stat->categorie}}</p>
                         </li>
+                        @endforeach
+                       
 
-
+                        @foreach ($stat3 as $stat)
                         <li data-aos="fade-right" class="stats-item purple">
                             <h3 class="item-title">
-                                386
-                                <span class="span">million</span>
+                                {{$stat->Number}}
+                                <span class="span">{{$stat->Numbertype}}</span>
                             </h3>
 
-                            <p class="stats-text">Marketing plans</p>
+                            <p class="stats-text">{{$stat->categorie}}</p>
                         </li>
+                        @endforeach
 
 
 
-
-
+                        @foreach ($stat4 as $stat)
                         <li data-aos="fade-right" class="stats-item yellow">
                             <h3 class="item-title">
-                                50
-                                <span class="span">companies</span>
+                                {{$stat->Number}}
+                                <span class="span">{{$stat->Numbertype}}</span>
                             </h3>
 
-                            <p class="stats-text">works with us and grow</p>
+                            <p class="stats-text">{{$stat->categorie}}</p>
                         </li>
-
+                        @endforeach
                     </ul>
 
                 </div>
             </section>
 
 
-            <x-clients />
+            <x-clients :clients="$clients" />
 
 
 
@@ -507,7 +413,7 @@
                         </p>
                     </div>
 
-                    <a href="/contact" class="btnn btnn-primary">Contact Us Now</a>
+                    <a href="/contactUs" class="btnn btnn-primary">Contact Us Now</a>
 
                 </div>
             </section>
@@ -550,43 +456,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

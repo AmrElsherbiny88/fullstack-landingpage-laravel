@@ -50,7 +50,7 @@
  
     <li><a href="/Addclient">Clients</a></li>
     <li><a href="/contact">Contact Us</a></li>
-
+    <li><a href="/terms">Terms and conditions</a></li>
     <hr class="mt-3">
     <li><a href="/profile">Edit your profile</a></li>
   </ul>

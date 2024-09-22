@@ -14,12 +14,17 @@ class AddprojectController extends Controller
     }
 
     public function store(Request $request)
-    {    
-        // تحميل الـ title والـ body
+    {
+        // Retrieve input fields
         $title = $request->input('title');
         $body = $request->input('Body');
+        $client_name = $request->input('client_name');
+        $project_summary = $request->input('project_summary');
+        $client_url = $request->input('client_url');
+        $date_of_creation = $request->input('date_of_creation');
+        $project_url = $request->input('project_url');
     
-        // تحميل الـ Thumbnail إن وجدت
+        // Handle thumbnail upload
         $thumbnailPath = null;
         if ($request->hasFile('Thumbnail')) {
             $thumbnail = $request->file('Thumbnail');
@@ -28,7 +33,16 @@ class AddprojectController extends Controller
             $thumbnailPath = 'assets/post_image/' . $thumbnailName;
         }
     
-        // تحميل الصور إن وجدت
+        // Handle client logo upload (fixing the file name mismatch)
+        $client_logoPath = null;
+        if ($request->hasFile('client_logo')) {
+            $client_logo = $request->file('client_logo'); // Consistent with form input name
+            $client_logoName = time() . '_client_logo.' . $client_logo->getClientOriginalExtension();
+            $client_logo->move(public_path('/assets/client_logo'), $client_logoName);
+            $client_logoPath = 'assets/client_logo/' . $client_logoName;
+        }
+    
+        // Handle additional image uploads
         $imagePaths = [];
         for ($i = 1; $i <= 4; $i++) {
             $imageInput = 'image' . $i;
@@ -40,10 +54,16 @@ class AddprojectController extends Controller
             }
         }
     
-        // إنشاء بوست جديد وربطه بالبائع الحالي
+        // Create new project
         $post = new Addproject();
         $post->title = $title;
         $post->body = $body;
+        $post->client_name = $client_name;
+        $post->project_summary = $project_summary;
+        $post->client_url = $client_url;
+        $post->project_url = $project_url;
+        $post->date_of_creation = $date_of_creation;
+        $post->client_logo = $client_logoPath; // Corrected client logo path
         $post->Thumbnail = $thumbnailPath;
         $post->image1 = $imagePaths['image1'] ?? null;
         $post->image2 = $imagePaths['image2'] ?? null;
@@ -51,9 +71,10 @@ class AddprojectController extends Controller
         $post->image4 = $imagePaths['image4'] ?? null;
         $post->save();
     
-        // إعادة التوجيه أو عرض رسالة نجاح
+        // Redirect to addProject route
         return redirect()->route('addProject');
     }
+    
 
     public function edit($id){
         $project = Addproject::findorFail($id);
@@ -67,20 +88,15 @@ class AddprojectController extends Controller
     // Find the existing project by its ID
     $project = Addproject::findOrFail($id);
 
-    // Validate the incoming request
-    $validatedData = $request->validate([
-        'title' => 'required|max:255',
-        'Body' => 'required',
-        'Thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'image4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    ]);
 
     // Update the text fields
     $project->title = $request->input('title');
     $project->Body = $request->input('Body');
+    $project->client_name = $request->input('client_name');
+    $project->project_summary = $request->input('project_summary');
+    $project->project_url = $request->input('project_url');
+    $project->date_of_creation = $request->input('date_of_creation');
+    $project->client_url = $request->input('client_url');
 
     // Update the Thumbnail if a new one is uploaded
     if ($request->hasFile('Thumbnail')) {
@@ -89,6 +105,14 @@ class AddprojectController extends Controller
         $thumbnail->move(public_path('/assets/post_image'), $thumbnailName);
         $project->Thumbnail = 'assets/post_image/' . $thumbnailName;
     }
+
+        // Update the Thumbnail if a new one is uploaded
+        if ($request->hasFile('client_logo')) {
+            $client_logo = $request->file('client_logo');
+            $client_logoName = time() . '_client_logo.' . $client_logo->getClientOriginalExtension();
+            $client_logo->move(public_path('/assets/client_logo'), $client_logoName);
+            $project->client_logo = 'assets/client_logo/' . $client_logoName;
+        }
 
     // Update images if new ones are uploaded
     for ($i = 1; $i <= 4; $i++) {

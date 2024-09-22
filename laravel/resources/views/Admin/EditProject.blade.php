@@ -28,12 +28,52 @@
 
             <br>
 
+            <input type="text" placeholder="project_summary"
+            class="input input-bordered input-primary w-full max-w-xs mt-5" name="project_summary" value="{{ $project->project_summary }}"/>
+        
+        <br>
+
+            <input type="text" placeholder="project_url"
+            class="input input-bordered input-primary w-full max-w-xs mt-5" name="project_url" value="{{ $project->project_url }}"/>
+
+        <br>
+
+        <input type="date" placeholder="date_of_creation"
+        class="input input-bordered input-primary w-full max-w-xs mt-5" name="date_of_creation" value="{{ $project->date_of_creation }}"/>
+
+        <br>
+
+
+
+        <input type="text" placeholder="client_name"
+        class="input input-bordered input-primary w-full max-w-xs mt-5" name="client_name" value="{{ $project->client_name }}"/>
+
+    <br>
+
+    <input type="text" placeholder="client_url"
+    class="input input-bordered input-primary w-full max-w-xs mt-5" name="client_url" value="{{ $project->client_url }}"/>
+
+<br>
+
+
             <label class="form-control w-full max-w-xs m-auto">
                 <div class="label">
                     <span class="label-text mt-5">Project thumbnail</span>
 
                 </div>
                 <input type="file" class="file-input file-input-bordered w-full max-w-xs" name="Thumbnail"/>
+                <div class="label">
+
+                </div>
+            </label>
+
+            
+            <label class="form-control w-full max-w-xs m-auto">
+                <div class="label">
+                    <span class="label-text mt-5">client_logo</span>
+
+                </div>
+                <input type="file" class="file-input file-input-bordered w-full max-w-xs" name="client_logo"/>
                 <div class="label">
 
                 </div>

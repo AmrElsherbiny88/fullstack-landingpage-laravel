@@ -5,10 +5,12 @@ use App\Http\Controllers\AddclientController;
 use App\Http\Controllers\AddfeaturesController;
 use App\Http\Controllers\AddsolutionController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FetchingController;
 use App\Http\Controllers\HerosectionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\StatsController;
+use App\Http\Controllers\TermsController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -95,6 +97,12 @@ Route::post("/contact" ,[ContactController::class, "store"] )->middleware(['auth
 Route::get('/contact', [ContactController::class, 'addcontact'])->middleware(['auth', 'verified'])->name('addcontact');
 
 
+// terms section
+Route::get('/terms/{id}', [TermsController::class, 'edit'])->middleware(['auth', 'verified'])->name('editterms');
+Route::delete('/deleteterms/{id}', [TermsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroyterms');
+Route::put('/putterms/{id}', [TermsController::class, 'update'])->middleware(['auth', 'verified'])->name('Updateterms');
+Route::post("/terms" ,[TermsController::class, "store"] )->middleware(['auth', 'verified'])->name("storeterms");
+Route::get('/terms', [TermsController::class, 'addterms'])->middleware(['auth', 'verified'])->name('addterms');
 
 
 
@@ -117,9 +125,8 @@ Route::get('/contact', [ContactController::class, 'addcontact'])->middleware(['a
 
 
 
-Route::get('/Addcontact', function () {
-    return view('Admin.Contact');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 Route::get('/EditProject', function () {
     return view('Admin.EditProject');
@@ -152,29 +159,41 @@ Route::get('/aaa', function () {
 Route::get('/', function () {
     return view('Landingpage.welcome');
 });
+Route::get('/', [FetchingController::class, 'index'])->name("index");
 
 
-Route::get('/portfolio', function () {
-    return view('Landingpage.portfolio');
+
+Route::get('/portfolio', [FetchingController::class, 'projects'])->name("projects");
+
+Route::get('/clients', function () {
+    return view('components.clients');
+});
+Route::get('/clients', [FetchingController::class, 'clients'])->name("clients");
+
+
+
+
+Route::get('/TermsandConditions', function () {
+    return view('Landingpage.terms');
 });
 
+Route::get('/terms', [TermsController::class, 'addterms'])->name('addterms');
 
 
 Route::get('/contactUs', function () {
     return view('Landingpage.contact');
 });
+Route::get('/contactUs', [FetchingController::class, 'contactUs'])->name('contactUs');
+
+// Route::get('/ServiceDetails', function () {
+//     return view('Landingpage.ServiceDetails');
+// });
+
+Route::get('/ServiceDetails/{id}', [ServicesController::class, 'ServiceDetails'])->name('ServiceDetails');
 
 
-Route::get('/ServiceDetails', function () {
-    return view('Landingpage.ServiceDetails');
-});
 
-
-
-Route::get('/projectDetails', function () {
-    return view('Landingpage.projectDetails');
-});
-
+Route::get('/projectDetails/{id}', [FetchingController::class, 'projectdetails'])->name('projectdetails');
 
 
 

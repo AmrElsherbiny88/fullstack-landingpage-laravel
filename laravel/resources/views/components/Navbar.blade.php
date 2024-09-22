@@ -56,7 +56,7 @@
         </ul>
       </nav>
 
-      <a href="/contact"><button class="btnn btnn-secondaryy">Contact Us</button>
+      <a href="/contactUs"><button class="btnn btnn-secondaryy">Contact Us</button>
       </a>
       <button class="nav-toggle-btnn" aria-label="Toggle menu" data-nav-toggle-btn>
         <ion-icon name="menu-outline" class="menu-icon"></ion-icon>

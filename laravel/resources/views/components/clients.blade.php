@@ -1,4 +1,4 @@
-<style>
+{{-- <style>
 
 @-webkit-keyframes scroll {
   0% {
@@ -59,97 +59,62 @@
 
 <div   data-aos="fade-right" class="slider bg-transparent mt-5">
 	<div class="slide-track bg-transparent">
-	<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
-		
+		@foreach ($clients as $client)
 		<div class="slide">
-		<a href="/">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+			<a href="{{$client->siteURL}}">
+			  <img src="{{$client->logo}}" height="100" width="250" alt="" />
 			</a>
-		</div>
+		   </div>
+		@endforeach
+	
 		
-		
-		<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
-
-			<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
-
-		
-		<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
-
-			<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
-
-
-			<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
-
-
-			<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
-
-
-			<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
-
-
-			<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
-
-
-			<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
-
-		<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
-
-
-			<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
-
-
-		<div class="slide">
-		 <a href="/">
-		   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-		 </a>
-		</div>
 	</div>
-</div>
+</div> --}}
+
+
+
+<!-- Splide CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
+
+<!-- Splide JS -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
+
+<div class="splide pt-5 pb-5" id="logo-slider">
+	<div class="splide__track">
+	  <ul class="splide__list">
+		@foreach ($clients as $client)
+		<li class="splide__slide" style="margin-left: 40px;">
+			<img src="{{$client->logo}}" alt="Logo" width="100px" height="100px" >
+		  </li>		
+		@endforeach
+	
+		
+	
+	  </ul>
+	</div>
+  </div>
+  <script>
+	document.addEventListener('DOMContentLoaded', function () {
+	  new Splide('#logo-slider', {
+		type       : 'loop',
+		autoplay   : true,
+		interval   : 2500, // Time between each slide (in milliseconds)
+		pauseOnHover: false, // Keep autoplay even when hovering over the slider
+		perPage    : 5, // Number of logos visible per page
+		perMove    : 1, // Number of logos moved per slide
+		gap        : '', // Gap between each logo
+		breakpoints: {
+		  1024: {
+			perPage: 4, // Show 3 logos per slide on smaller screens
+		  },
+		  768: {
+			perPage: 3, // Show 2 logos per slide on tablets
+		  },
+		  480: {
+			perPage: 2, // Show 1 logo per slide on small screens
+		  },
+		},
+	  }).mount();
+	});
+  </script>
+	

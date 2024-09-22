@@ -80,4 +80,8 @@ class ServicesController extends Controller
     return redirect()->route('addservice');
 }
 
+public function ServiceDetails($id) {
+    $service = services::where('id' , $id)->first();
+    return view('Landingpage.ServiceDetails' , compact('service'));
+}
 }

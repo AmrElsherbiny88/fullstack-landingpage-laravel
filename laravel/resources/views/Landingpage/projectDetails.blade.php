@@ -24,57 +24,90 @@
   <x-loading/>
   <!-- loading page end -->
 
+  @foreach ($project as $item)
+      
+
 <section class="containerrr col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5" style="margin-top:100px;">
    <div class="row">
 
    <div data-aos="fade-right" class=" col-xl-6 col-lg-6 col-md-6 col-sm-6 mt-5 mb-5 ">
-     <h1 class="h1">project title</h1>
-     <h3 class="h3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit iure provident eaque tempora atque nobis. Accusantium quas, blanditiis pariatur natus ipsam, porro fuga magni quidem, esse ullam quo? Recusandae, quidem?</h3>
+     <h1 class="h1">{{$item->title}}</h1>
+     <h3 class="h3">{{$item->Body}}</h3>
    </div>
 
  <!-- images of project -->
-     <div data-aos="fade-up" class=" col-xl-6 col-lg-6 col-md-6 col-sm-6">
-     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{{ asset('images/features-banner-2.png') }}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{{ asset('images/features-banner-2.png') }}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{{ asset('images/features-banner-2.png') }}" class="d-block w-100" alt="...">
-    </div>
+<div data-aos="fade-up" class="col-xl-6 col-lg-6 col-md-6 col-sm-6" >
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" style="margin-top: 50px;">
+      <div class="carousel-inner">
+          @if ($item->image1)
+              <div class="carousel-item active ">
+                  <img src="{{ asset($item->image1) }}" class="h-100 w-100 "  alt="Project Image 1" >
+              </div>
+          @endif
+          
+          @if ($item->image2)
+              <div class="carousel-item ">
+                  <img src="{{ asset($item->image2) }}" class="d-block w-100 " alt="Project Image 2"  >
+              </div>
+          @endif
+          
+          @if ($item->image3)
+              <div class="carousel-item">
+                  <img src="{{ asset($item->image3) }}" class="d-block w-100 " alt="Project Image 3">
+              </div>
+          @endif
+          
+          @if ($item->image4)
+              <div class="carousel-item">
+                  <img src="{{ asset($item->image4) }}" class="d-block w-100 " alt="Project Image 4">
+              </div>
+          @endif
+      </div>
+      
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
-     </div>
-   </div>
+
 </section>
 
 
 <!-- client and project data -->
-<section class="data mb-5  mt-5 p-5">
+<section class="data mb-5 mt-5 p-5">
 <div class="containerrr col-xl-12 col-lg-12 col-md-12 col-sm-12 " >
     <div class="row">
-       <div data-aos="fade-right" class="col-xl-6 col-lg-6 col-md-6 col-sm-6 logoo ">
-          <img class="proj-client-logo m-auto" src="{{ asset('images/76106.png') }}" />
-       </div>
+
+      @if ($item->client_logo	)
+      <div  class="col-xl-6 col-lg-6 col-md-6 col-sm-6 logoo ">
+        <img class="proj-client-logo m-auto" src="{{ asset($item->client_logo	) }}" style="width:150px; height: 150px;" />
+        @if ($item->client_name	)
+        <h1 class="text-center text-white mt-3">{{$item->client_name}}</h1>
+    @endif
+     </div>      
+      @endif
+
 
        
-       <div data-aos="fade-right" class=" data-text col-xl-6 col-lg-6 col-md-6 col-sm-6 mt-5 mb-5 text-center" >
-          <h3 class="h3 text-white"> 17,August,2024</h3>
-
+       <div  class=" data-text col-xl-6 col-lg-6 col-md-6 col-sm-6 mt-5 mb-5 text-center" >
+        @if ($item->date_of_creation)
+        <h3 class="h3 text-white"> {{$item->date_of_creation}}</h3>   
+        @endif
+         
+        @if ($item->project_url)
+        <a href="{{$item->project_url}}">
           <button class="btnn btnn-primary m-auto">
-             Visit the project
-          </button>
+            Visit the project
+         </button>
+        </a>    
+        @endif
+        
+        
        </div>
 
 
@@ -82,144 +115,164 @@
 </div>
 </section>
 
-<x-clients/>
+
+@endforeach
+
  
- <!-- 
-        - #ABOUT
-      -->
+<section class="section about" id="about">
+  <div class="containerrr">
 
-      <section class="section about m-auto" id="about">
-        <div class="containerrr">
+      <h2 data-aos="fade-right" class="h2 section-title">What We Do</h2>
 
-          <h2 data-aos="fade-right" class="h2 section-title">What We Do</h2>
+      <p data-aos="fade-right" class="section-text">
+          Here is our service that we can provide to you with a strong and creative team with high quality
+          in a short time
+      </p>
 
-          <p  data-aos="fade-right" class="section-text">
-          Here is our service that we can provide to you with a strong and creative team with high quality in a short time
-          </p>
-
-          <ul class="about-list">
-
-            <li data-aos="fade-up">
-              <div class="about-card about-card-1">
-
-                <figure class="card-banner">
-                  <img src="{{ asset('images/about-img-1.svg') }}" width="94" height="94" loading="lazy"
-                    alt="Automated Ticket Routing">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="/ServiceDetails" class="card-title">Social media marketing and ADs</a>
-                  </h3>
-
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consect etur adipiscing elit.
-                  </p>
-
-                  <a href="/ServiceDetails" class="btn-link">
-                    <span class="span">Learn More</span>
-
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li data-aos="fade-down">
+      <ul class="about-list">
+          @foreach ($service1 as $service)
+          <li data-aos="fade-down">
               <div class="about-card about-card-2">
 
-                <figure class="card-banner">
-                  <img src="{{ asset('images/about-img-2.svg') }}" width="94" height="94" loading="lazy"
-                    alt="Workflow Automation">
-                </figure>
+              
+                      
+            
+                  <figure class="card-banner">
+                      <img src="{{ asset($service->image) }}" width="94" height="94"
+                          loading="lazy" alt="Workflow Automation">
+                  </figure>
 
-                <div class="card-content">
+                  <div class="card-content">
 
-                  <h3 class="h3">
-                    <a href="/ServiceDetails" class="card-title">Web development</a>
-                  </h3>
+                      <h3 class="h3">
+                          <a href="{{route('ServiceDetails',$service->id)}}" class="card-title">{{ $service->Title }}</a>
+                      </h3>
 
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consect etur adipiscing elit.
-                  </p>
+                      <p class="card-text">
+                          {{ $service->description }}
+                      </p>
 
-                  <a href="/ServiceDetails" class="btn-link">
-                    <span class="span">Learn More</span>
+                      <a href="{{route('ServiceDetails',$service->id)}}" class="btn btn-transparent text-white ">
+                          <h3 class="span">Learn More</h3>
 
-                  </a>
 
-                </div>
+                      </a>
 
+                  </div>
               </div>
-            </li>
+          </li>
+          @endforeach
 
-            <li data-aos="fade-up">
+
+
+         @foreach ($service2 as $service)
+             
+
+          <li data-aos="fade-up">
               <div class="about-card about-card-3">
 
-                <figure class="card-banner">
-                  <img src="{{ asset('images/about-img-3.svg') }}" width="94" height="94" loading="lazy"
-                    alt="Automated Callback">
-                </figure>
+                  <figure class="card-banner">
+                      <img src="{{ asset($service->image) }}" width="94" height="94"
+                          loading="lazy" alt="Automated Callback">
+                  </figure>
 
-                <div class="card-content">
+                  <div class="card-content">
 
-                  <h3 class="h3">
-                    <a href="/ServiceDetails" class="card-title">Mobile App development</a>
-                  </h3>
+                      <h3 class="h3">
+                          <a href="{{route('ServiceDetails',$service->id)}}" class="card-title">{{ $service->Title }}</a>
+                      </h3>
 
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consect etur adipiscing elit.
-                  </p>
+                      <p class="card-text">
+                          {{ $service->description }}
+                      </p>
 
-                  <a href="/ServiceDetails" class="btn-link">
-                    <span class="span">Learn More</span>
+                      <a href="{{route('ServiceDetails',$service->id)}}" class="btn btn-transparent text-white ">
+                          <h3 class="span">Learn More</h3>
 
-                  </a>
 
-                </div>
+                      </a>
+
+                  </div>
 
               </div>
-            </li>
+          </li>
 
-            <li data-aos="fade-down">
+          @endforeach
+
+
+          @foreach ($service3 as $service)
+              
+          <li data-aos="fade-up">
+              <div class="about-card about-card-1">
+
+                  <figure class="card-banner">
+                      <img src="{{asset($service->image) }}" width="94" height="94"
+                          loading="lazy" alt="Automated Ticket Routing">
+                  </figure>
+
+                  <div class="card-content">
+
+                      <h3 class="h3">
+                          <a href="{{route('ServiceDetails',$service->id)}}" class="card-title">{{ $service->Title }}</a>
+                      </h3>
+
+                      <p class="card-text">
+                          {{ $service->description }}
+                      </p>
+
+                      <a href="{{route('ServiceDetails',$service->id)}}" class="btn btn-transparent text-white ">
+                          <h3 class="span">Learn More</h3>
+
+
+                      </a>
+                  </div>
+
+              </div>
+          </li>
+          @endforeach
+
+
+          @foreach ($service4 as $service)
+        
+          <li data-aos="fade-down">
               <div class="about-card about-card-4">
 
-                <figure class="card-banner">
-                  <img src="{{ asset('images/about-img-4.svg') }}" width="94" height="94" loading="lazy"
-                    alt="Customer Feedback Surveys">
-                </figure>
+                  <figure class="card-banner">
+                      <img src="{{ asset($service->image) }}" width="94" height="94"
+                          loading="lazy" alt="Customer Feedback Surveys">
+                  </figure>
 
-                <div class="card-content">
+                  <div class="card-content">
 
-                  <h3 class="h3">
-                    <a href="/ServiceDetails" class="card-title">Full identity and marketing plans</a>
-                  </h3>
+                      <h3 class="h3">
+                          <a href="{{route('ServiceDetails',$service->id)}}" class="card-title">{{ $service->Title }}</a>
+                      </h3>
 
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consect etur adipiscing elit.
-                  </p>
+                      <p class="card-text">
+                          {{ $service->description }}
+                      </p>
 
-                  <a href="/ServiceDetails" class="btn-link">
-                    <span class="span">Learn More</span>
+                      <a href="{{route('ServiceDetails',$service->id)}}" class="btn btn-transparent text-white ">
+                          <h3 class="span">Learn More</h3>
 
-                 
-                  </a>
 
-                </div>
+                      </a>
+
+                  </div>
 
               </div>
-            </li>
+          </li>
 
-          </ul>
+          @endforeach
+      </ul>
 
-          <p class="section-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget gravida facilisis maecenas vitae.
-          </p>
+      <p class="section-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget gravida facilisis maecenas vitae.
+      </p>
 
-        </div>
-      </section>
+  </div>
+</section>
+
 
 
 

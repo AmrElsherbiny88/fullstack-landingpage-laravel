@@ -1,3 +1,4 @@
+{{-- @dd($servise) --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,36 +39,40 @@
 
   
 <!-- service card -->
-<section data-aos="fade-up" class="containerrr text-center col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5" style="margin-top:150px;">
+
+
+{{-- @foreach ($servise as $item) --}}
+     
+
+<section  class="containerrr text-center col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5" style="margin-top:150px;">
 <div class="about-card about-card-2">
 
-<figure class="card-banner">
-  <img src="{{ asset('images/about-img-2.svg') }}" width="94" height="94" loading="lazy"
-    alt="Workflow Automation">
+<figure data-aos="fade-right" class="card-banner">
+  <img src="{{  asset($service->image) }}" width="94" height="94" loading="lazy" alt="Customer Feedback Surveys"/>
 </figure>
 
-<div class="card-content">
+<div class="card-content" data-aos="fade-left">
 
   <h3 class="h3">
-    <a href="/ServiceDetails" class="card-title">Web development</a>
+    <a href="/ServiceDetails" class="card-title">{{$service->Title}}</a>
   </h3>
 
   <p class="card-text">
-    Lorem ipsum dolor sit amet, consect etur adipiscing elit.
+  {{$service->description}}
   </p>
 
 </div>
 
 </div>
 </section>
-
+{{-- @endforeach --}}
 
 <!-- details -->
     
 <section data-aos="fade-right" class="containerrr formm  col-xl-12 col-md-12 col-lg-12 col-sm-12 mt-5">
    <div class="row">
      <div class="col-xl-6 col-md-6 col-lg-6 col-sm-6 mb-5">
-          <h2 class="text-black">At RunSoft, we specialize in crafting high-performance, visually stunning websites tailored to your business needs. Our expert web development team combines cutting-edge technologies with a deep understanding of user experience to deliver sites that are not only beautiful but also functional and responsive across all devices. Whether you need a simple informational site, a complex e-commerce platform, or a custom web application, we provide scalable solutions designed to grow with your business. We ensure every project is optimized for speed, security, and search engine visibility, helping you make a powerful impact online.</h2>
+          <h2 class="text-black">  {{$service->summary}}</h2>
      </div>
 
      <div class="col-xl-6 col-md-6 col-lg-6 col-sm-6">
