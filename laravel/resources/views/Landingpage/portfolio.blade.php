@@ -97,7 +97,7 @@
 
 
 
-    <x-footer />
+    <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber"  :email="$email" :sitename="$site_name"/>
 
 
 {{-- 

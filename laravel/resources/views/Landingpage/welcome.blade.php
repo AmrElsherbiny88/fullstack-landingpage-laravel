@@ -5,27 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Runsoft - Make development Easy</title>
+
+    @foreach ($Title as $item)
+        <title>{{ $item->data }}</title>
+        <meta property="twitter:title" content="{{ $item->data }}">
+        <meta property="og:title" content="{{ $item->data }}">
+    @endforeach
+
+    @foreach ($description as $item)
+        <meta name="description" content="{{ $item->data }}">
+        <meta property="og:description" content="{{ $item->data }}">
+        <meta property="twitter:description" content="{{ $item->data }}">
+    @endforeach
+
+    @foreach ($site_name as $item)
+        <meta property="og:site_name" content="{{ $item->data }}">
+    @endforeach
+
+    @foreach ($URL as $item)
+        <meta property="og:url" content="{{ $item->data }}">
+        <link rel="canonical" href="{{ $item->data }}">
+    @endforeach
+
+    @foreach ($Siteimage as $item)
+        <meta property="og:image" content="{{ $item->logo }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta name="twitter:image" content="{{ $item->logo }}">
+        <link rel="icon" href="{{ $item->logo }}" type="image/x-icon">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ $item->logo }}">
+    @endforeach
+
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!--
-    - custom css link
-  -->
+
+    <!-- custom css link -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
 
-    <!--
-    - google font link
-  -->
+    <!-- google font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;900&display=swap"
         rel="stylesheet">
 
-    <!--
-    - preload image
-  -->
+    <!-- preload image -->
     <link rel="preload" as="image" href="{{ asset('images/hero-banner.png') }}">
 </head>
 
@@ -67,9 +94,9 @@
                             marketing, website programming, advertisements, and marketing plans
                         </p>
 
-                 
 
-                        
+
+
                     </div>
                 </div>
             </section>
@@ -94,8 +121,9 @@
                                 <div class="service-card" style="width: 291.6px ;">
 
                                     <figure class="card-banner">
-                                        <img src=" {{ $dol->image }}" style="width: 291.6px ; height: 137.79px;" width="291.6px" height="137.79px" loading="lazy"
-                                            alt="support" class="w-100 h-100">
+                                        <img src=" {{ $dol->image }}" style="width: 291.6px ; height: 137.79px;"
+                                            width="291.6px" height="137.79px" loading="lazy" alt="support"
+                                            class="w-100 h-100">
                                     </figure>
 
                                     <div class="card-content">
@@ -182,138 +210,140 @@
 
                     <ul class="about-list">
                         @foreach ($service1 as $service)
-                        <li data-aos="fade-down">
-                            <div class="about-card about-card-2">
-      
-                            
-                                    
-                          
-                                <figure class="card-banner">
-                                    <img src="{{ $service->image }}" width="94" height="94"
-                                        loading="lazy" alt="Workflow Automation">
-                                </figure>
-
-                                <div class="card-content">
-
-                                    <h3 class="h3">
-                                        <a href="{{route('ServiceDetails',$service->id)}}" class="card-title">{{ $service->Title }}</a>
-                                    </h3>
-
-                                    <p class="card-text">
-                                        {{ $service->description }}
-                                    </p>
-
-                                    <a href="{{route('ServiceDetails',$service->id)}}" class="btn btn-transparent text-white ">
-                                        <h3 class="span">Learn More</h3>
+                            <li data-aos="fade-down">
+                                <div class="about-card about-card-2">
 
 
-                                    </a>
 
+
+                                    <figure class="card-banner">
+                                        <img src="{{ $service->image }}" width="94" height="94"
+                                            loading="lazy" alt="Workflow Automation">
+                                    </figure>
+
+                                    <div class="card-content">
+
+                                        <h3 class="h3">
+                                            <a href="{{ route('ServiceDetails', $service->id) }}"
+                                                class="card-title">{{ $service->Title }}</a>
+                                        </h3>
+
+                                        <p class="card-text">
+                                            {{ $service->description }}
+                                        </p>
+
+                                        <a href="{{ route('ServiceDetails', $service->id) }}"
+                                            class="btn btn-transparent text-white ">
+                                            <h3 class="span">Learn More</h3>
+
+
+                                        </a>
+
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
                         @endforeach
 
 
 
-                       @foreach ($service2 as $service)
-                           
-        
-                        <li data-aos="fade-up">
-                            <div class="about-card about-card-3">
+                        @foreach ($service2 as $service)
+                            <li data-aos="fade-up">
+                                <div class="about-card about-card-3">
 
-                                <figure class="card-banner">
-                                    <img src="{{ $service->image }}" width="94" height="94"
-                                        loading="lazy" alt="Automated Callback">
-                                </figure>
+                                    <figure class="card-banner">
+                                        <img src="{{ $service->image }}" width="94" height="94"
+                                            loading="lazy" alt="Automated Callback">
+                                    </figure>
 
-                                <div class="card-content">
+                                    <div class="card-content">
 
-                                    <h3 class="h3">
-                                        <a href="{{route('ServiceDetails',$service->id)}}" class="card-title">{{ $service->Title }}</a>
-                                    </h3>
+                                        <h3 class="h3">
+                                            <a href="{{ route('ServiceDetails', $service->id) }}"
+                                                class="card-title">{{ $service->Title }}</a>
+                                        </h3>
 
-                                    <p class="card-text">
-                                        {{ $service->description }}
-                                    </p>
+                                        <p class="card-text">
+                                            {{ $service->description }}
+                                        </p>
 
-                                    <a href="{{route('ServiceDetails',$service->id)}}" class="btn btn-transparent text-white ">
-                                        <h3 class="span">Learn More</h3>
+                                        <a href="{{ route('ServiceDetails', $service->id) }}"
+                                            class="btn btn-transparent text-white ">
+                                            <h3 class="span">Learn More</h3>
 
 
-                                    </a>
+                                        </a>
+
+                                    </div>
 
                                 </div>
-
-                            </div>
-                        </li>
-
+                            </li>
                         @endforeach
 
 
                         @foreach ($service3 as $service)
-                            
-                        <li data-aos="fade-up">
-                            <div class="about-card about-card-1">
+                            <li data-aos="fade-up">
+                                <div class="about-card about-card-1">
 
-                                <figure class="card-banner">
-                                    <img src="{{ $service->image }}" width="94" height="94"
-                                        loading="lazy" alt="Automated Ticket Routing">
-                                </figure>
+                                    <figure class="card-banner">
+                                        <img src="{{ $service->image }}" width="94" height="94"
+                                            loading="lazy" alt="Automated Ticket Routing">
+                                    </figure>
 
-                                <div class="card-content">
+                                    <div class="card-content">
 
-                                    <h3 class="h3">
-                                        <a href="{{route('ServiceDetails',$service->id)}}" class="card-title">{{ $service->Title }}</a>
-                                    </h3>
+                                        <h3 class="h3">
+                                            <a href="{{ route('ServiceDetails', $service->id) }}"
+                                                class="card-title">{{ $service->Title }}</a>
+                                        </h3>
 
-                                    <p class="card-text">
-                                        {{ $service->description }}
-                                    </p>
+                                        <p class="card-text">
+                                            {{ $service->description }}
+                                        </p>
 
-                                    <a href="{{route('ServiceDetails',$service->id)}}" class="btn btn-transparent text-white ">
-                                        <h3 class="span">Learn More</h3>
+                                        <a href="{{ route('ServiceDetails', $service->id) }}"
+                                            class="btn btn-transparent text-white ">
+                                            <h3 class="span">Learn More</h3>
 
 
-                                    </a>
+                                        </a>
+                                    </div>
+
                                 </div>
-
-                            </div>
-                        </li>
+                            </li>
                         @endforeach
 
 
                         @foreach ($service4 as $service)
-                      
-                        <li data-aos="fade-down">
-                            <div class="about-card about-card-4">
+                            <li data-aos="fade-down">
+                                <div class="about-card about-card-4">
 
-                                <figure class="card-banner">
-                                    <img src="{{ $service->image }}" width="94" height="94"
-                                        loading="lazy" alt="Customer Feedback Surveys">
-                                </figure>
+                                    <figure class="card-banner">
+                                        <img src="{{ $service->image }}" width="94" height="94"
+                                            loading="lazy" alt="Customer Feedback Surveys">
+                                    </figure>
 
-                                <div class="card-content">
+                                    <div class="card-content">
 
-                                    <h3 class="h3">
-                                        <a href="{{route('ServiceDetails',$service->id)}}" class="card-title">{{ $service->Title }}</a>
-                                    </h3>
+                                        <h3 class="h3">
+                                            <a href="{{ route('ServiceDetails', $service->id) }}"
+                                                class="card-title">{{ $service->Title }}</a>
+                                        </h3>
 
-                                    <p class="card-text">
-                                        {{ $service->description }}
-                                    </p>
+                                        <p class="card-text">
+                                            {{ $service->description }}
+                                        </p>
 
-                                    <a href="{{route('ServiceDetails',$service->id)}}" class="btn btn-transparent text-white ">
-                                        <h3 class="span">Learn More</h3>
+                                        <a href="{{ route('ServiceDetails', $service->id) }}"
+                                            class="btn btn-transparent text-white ">
+                                            <h3 class="span">Learn More</h3>
 
 
-                                    </a>
+                                        </a>
+
+                                    </div>
 
                                 </div>
-
-                            </div>
-                        </li>
-      
+                            </li>
                         @endforeach
                     </ul>
 
@@ -338,52 +368,52 @@
                     </figure>
 
                     <ul class="stats-list">
-               
-                        @foreach ($stat1 as $stat)
-                        <li data-aos="fade-right" class="stats-item red">
-                            <h3 class="item-title">
-                               {{$stat->Number}}
-                                <span class="span">  {{$stat->Numbertype}}</span>
-                            </h3>
 
-                            <p class="stats-text">{{$stat->categorie}}</p>
-                        </li>
+                        @foreach ($stat1 as $stat)
+                            <li data-aos="fade-right" class="stats-item red">
+                                <h3 class="item-title">
+                                    {{ $stat->Number }}
+                                    <span class="span"> {{ $stat->Numbertype }}</span>
+                                </h3>
+
+                                <p class="stats-text">{{ $stat->categorie }}</p>
+                            </li>
                         @endforeach
 
                         @foreach ($stat2 as $stat)
-                        <li data-aos="fade-right" class="stats-item green">
-                            <h3 class="item-title">
-                                {{$stat->Number}}
-                                <span class="span">{{$stat->Numbertype}}</span>
-                            </h3>
+                            <li data-aos="fade-right" class="stats-item green">
+                                <h3 class="item-title">
+                                    {{ $stat->Number }}
+                                    <span class="span">{{ $stat->Numbertype }}</span>
+                                </h3>
 
-                            <p class="stats-text">{{$stat->categorie}}</p>
-                        </li>
+                                <p class="stats-text">{{ $stat->categorie }}</p>
+                            </li>
                         @endforeach
-                       
+
 
                         @foreach ($stat3 as $stat)
-                        <li data-aos="fade-right" class="stats-item purple">
-                            <h3 class="item-title">
-                                {{$stat->Number}}
-                                <span class="span">{{$stat->Numbertype}}</span>
-                            </h3>
+                            <li data-aos="fade-right" class="stats-item purple">
+                                <h3 class="item-title">
+                                    {{ $stat->Number }}
+                                    <span class="span">{{ $stat->Numbertype }}</span>
+                                </h3>
 
-                            <p class="stats-text">{{$stat->categorie}}</p>
-                        </li>
+                                <p class="stats-text">{{ $stat->categorie }}</p>
+                            </li>
                         @endforeach
 
 
 
                         @foreach ($stat4 as $stat)
-                        <li data-aos="fade-right" class="stats-item yellow">
-                            <h3 class="item-title">
-                                {{$stat->Number}}
-                                <span class="span">{{$stat->Numbertype}}</span>
-                            </h3>
+                            <li data-aos="fade-right" class="stats-item yellow">
+                                <h3 class="item-title">
+                                    {{ $stat->Number }}
+                                    <span class="span">{{ $stat->Numbertype }}</span>
+                                </h3>
 
-                            <p class="stats-text">{{$stat->categorie}}</p>
-                        </li>
+                                <p class="stats-text">{{ $stat->categorie }}</p>
+                            </li>
                         @endforeach
                     </ul>
 
@@ -426,7 +456,7 @@
     - #FOOTER
   -->
 
-    <x-footer />
+    <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber"  :email="$email" :sitename="$site_name"/>
 
 
     <!--

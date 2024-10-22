@@ -65,7 +65,7 @@
     <ion-icon name="chevron-up"></ion-icon>
   </a>
 
-<x-footer/>
+    <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber"  :email="$email" :sitename="$site_name"/>
 
 
  <!-- MDB -->

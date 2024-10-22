@@ -41,11 +41,15 @@
 
     <div class="footerrr-brand">
       
+@foreach ($siteimage as $item)
+    
+@endforeach
+<figure class="footerrr-img">
+  <img src="{{$item->logo }}" width="250" height="226" loading="lazy" aria-hidden="true"
+    class="">
+</figure>
 
-      <figure class="footerrr-img">
-        <img src="{{ asset('images/logo.png') }}" width="250" height="226" loading="lazy" aria-hidden="true"
-          class="">
-      </figure>
+ 
     </div>
 
     <ul class="footerrr-list">
@@ -113,10 +117,13 @@
       <li class="footerrr-item">
         <img src="{{ asset('images/contact-icon-1.svg') }}" width="16" height="16" loading="lazy" aria-hidden="true">
 
+        @foreach ($phonenumber as $item)
         <span class="span">
           Call Us:
-          <a href="tel:+3237501234" class="footerrr-item-link">01101761785</a>
-        </span>
+          <a href="tel:{{$item->URL}}" class="footerrr-item-link">{{$item->URL}}</a>
+        </span>    
+        @endforeach
+        
       </li>
 
       <li class="footerrr-item">
@@ -130,11 +137,13 @@
 
       <li class="footerrr-item">
         <img src="{{ asset('images/contact-icon-3.svg') }}" width="16" height="16" loading="lazy" aria-hidden="true">
-
-        <span class="span">
-          Mail Us:
-          <a href="mailto:hello@Techx.com" class="footerrr-item-link">Runsoft@gmail.com</a>
-        </span>
+@foreach ($email as $item)
+<span class="span">
+  Mail Us:
+  <a href="mailto:{{$item->URL}}" class="footerrr-item-link">{{$item->URL}}</a>
+</span>
+@endforeach
+      
       </li>
 
     </ul>
@@ -144,9 +153,11 @@
 
 <div class="footerrr-bottom">
   <div class="containerrr">
-
+@foreach ($sitename as $item)
+    
+@endforeach
     <p class="copyright">
-      &copy; 2024 <span class="span">Runsoft</span>
+      &copy; 2024 <span class="span">{{$item->data}}</span>
         
     </p>
 

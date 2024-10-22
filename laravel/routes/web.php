@@ -9,6 +9,7 @@ use App\Http\Controllers\FetchingController;
 use App\Http\Controllers\HerosectionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\StatsController;
 use App\Http\Controllers\TermsController;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +58,15 @@ Route::delete('/deletefeatures/{id}', [AddfeaturesController::class, 'destroy'])
 Route::put('/putfeatures/{id}', [AddfeaturesController::class, 'update'])->middleware(['auth', 'verified'])->name('Updatefeatures');
 Route::post("/Addfeatures" ,[AddfeaturesController::class, "store"] )->middleware(['auth', 'verified'])->name("storefeatures");
 Route::get('/Addfeatures', [AddfeaturesController::class, 'addfeature'])->middleware(['auth', 'verified'])->name('addfeature');
+
+
+// settings
+Route::get('/Setting/{id}', [SettingsController::class, 'edit'])->middleware(['auth', 'verified'])->name('editSetting');
+Route::delete('/deleteSetting/{id}', [SettingsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroySetting');
+Route::put('/putSetting/{id}', [SettingsController::class, 'update'])->middleware(['auth', 'verified'])->name('UpdateSetting');
+Route::post("/AddSetting" ,[SettingsController::class, "store"] )->middleware(['auth', 'verified'])->name("storeSetting");
+Route::get('/AddSetting', [SettingsController::class, 'addSetting'])->middleware(['auth', 'verified'])->name('addSetting');
+
 
 
 
@@ -146,9 +156,6 @@ Route::get('/EditFeatures', function () {
 
 
 
-Route::get('/aaa', function () {
-    return view('admin.test');
-});
 
 
 

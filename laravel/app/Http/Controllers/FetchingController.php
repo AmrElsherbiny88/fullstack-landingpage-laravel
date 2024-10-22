@@ -9,6 +9,7 @@ use App\Models\Addproject;
 use App\Models\Addsolution;
 use App\Models\contact;
 use App\Models\services;
+use App\Models\settings;
 use App\Models\stats;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -17,12 +18,11 @@ class FetchingController extends Controller
 {
     public function index()
     {
-        // Fetch all clients from the database
-      // Fetch all clients from the 'clients' table
+     
       $solutions = Addsolution::all();
 
       $features = Addfeatures::all();
-
+       
       $service1 = services::where('id' , 1)->get();
       $service2 = services::where('id' , 2)->get();
       $service3 = services::where('id' , 3)->get();
@@ -32,7 +32,14 @@ class FetchingController extends Controller
       $stat2 = stats::where('id' , 2)->get();
       $stat3 = stats::where('id' , 3)->get();
       $stat4 = stats::where('id' , 4)->get();
-
+    
+      $description = settings::where('id' , 3 )->get() ;
+      $URL = settings::where('id' , 4)->get() ;
+      $site_name = settings::where('id' , 5 )->get() ;
+      $Title = settings::where('id' , 6 )->get() ;
+      $Siteimage = settings::where('id' , 7 )->get() ;
+      $Phonenumber = contact::where('id' , 6)->get();
+      $email = contact::where('id' , 5)->get();
       $clients = Addclient::all();
 
       return view('Landingpage.welcome', compact(
@@ -57,7 +64,20 @@ class FetchingController extends Controller
 
       "stat4" ,
       
-      'clients'
+      'clients',
+
+      'description',
+
+      'URL',
+
+      'site_name',
+
+      'Title',
+
+      'Siteimage',
+      'Phonenumber',
+
+      "email" ,
     
     
     ));
@@ -74,7 +94,10 @@ class FetchingController extends Controller
       $Phonenumber = contact::where('id' , 6)->get();
       $linkedin = contact::where('id' ,7)->get();
       $twitter = contact::where('id' ,8)->get();
-         
+      $site_name = settings::where('id' , 5 )->get() ;
+      $Title = settings::where('id' , 6 )->get() ;
+      $Siteimage = settings::where('id' , 7 )->get() ;
+
       return view('Landingpage.contact', compact('facebook',
       
       "github",
@@ -90,6 +113,16 @@ class FetchingController extends Controller
       "linkedin" ,
 
       "twitter" ,
+
+      
+      'site_name',
+
+      'Title',
+
+      'Siteimage',
+ 
+
+ 
     ));
 
     }
@@ -100,8 +133,21 @@ class FetchingController extends Controller
     public function projects(){ 
 
       $projects = Addproject::all();
-         
-      return view('Landingpage.portfolio', compact('projects' ));
+      $site_name = settings::where('id' , 5 )->get() ;
+      $Title = settings::where('id' , 6 )->get() ;
+      $Siteimage = settings::where('id' , 7 )->get() ;
+      $Phonenumber = contact::where('id' , 6)->get();
+      $email = contact::where('id' , 5)->get();
+      return view('Landingpage.portfolio', compact('projects',
+      'site_name',
+
+      'Title',
+
+      'Siteimage',
+      'Phonenumber',
+
+      "email" ,
+    ));
 
     }
 
@@ -114,7 +160,11 @@ class FetchingController extends Controller
       $service2 = services::where('id' , 2)->get();
       $service3 = services::where('id' , 3)->get();
       $service4 = services::where('id' , 4)->get();
-
+      $site_name = settings::where('id' , 5 )->get() ;
+      $Title = settings::where('id' , 6 )->get() ;
+      $Siteimage = settings::where('id' , 7 )->get() ;
+      $Phonenumber = contact::where('id' , 6)->get();
+      $email = contact::where('id' , 5)->get();
 
       return view('Landingpage.projectDetails' , compact('project' , "clients",
     "service1",
@@ -124,8 +174,38 @@ class FetchingController extends Controller
       "service3" ,
       
       "service4",
+
+      
+      'site_name',
+
+      'Title',
+
+      'Siteimage',
+      'Phonenumber',
+
+      "email" ,
     
     ));
+
+    
       
   }
+
+  
+  // public function footer(){ 
+
+  //   $email = contact::where('id' , 5)->get();
+  //   $Phonenumber = contact::where('id' , 6)->get();
+  //   $site_name = settings::where('id' , 5 )->get() ;
+  //   $Siteimage = settings::where('id' , 7 )->get() ;
+  //   return view('components.footer', compact(
+      
+  //     'email',
+  //     'Phonenumber',
+  //     'site_name',
+  //     'Siteimage',
+  // ));
+
+  // }
+
 }
