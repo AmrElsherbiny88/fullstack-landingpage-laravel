@@ -45,7 +45,7 @@
     
 @endforeach
 <figure class="footerrr-img">
-  <img src="{{$item->logo }}" width="250" height="226" loading="lazy" aria-hidden="true"
+  <img src="{{  asset($item->logo) }}" width="250" height="226" loading="lazy" aria-hidden="true"
     class="">
 </figure>
 

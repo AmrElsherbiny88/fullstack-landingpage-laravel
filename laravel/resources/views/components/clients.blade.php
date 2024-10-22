@@ -84,7 +84,10 @@
 	  <ul class="splide__list">
 		@foreach ($clients as $client)
 		<li class="splide__slide" style="margin-left: 40px;">
-			<img src="{{$client->logo}}" alt="Logo" width="100px" height="100px" >
+			<a href="{{$client->siteURL}}">
+				<img src="{{$client->logo}}" alt="Logo" width="100px" height="100px" >
+			</a>
+		
 		  </li>		
 		@endforeach
 	

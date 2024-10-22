@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\contact;
 use App\Models\services;
+use App\Models\settings;
 use Illuminate\Http\Request;
 
 class ServicesController extends Controller
@@ -82,6 +84,20 @@ class ServicesController extends Controller
 
 public function ServiceDetails($id) {
     $service = services::where('id' , $id)->first();
-    return view('Landingpage.ServiceDetails' , compact('service'));
+    $Title = settings::where('id' , 6 )->get() ;
+    $Siteimage = settings::where('id' , 7 )->get() ;
+    $Phonenumber = contact::where('id' , 6)->get();
+    $email = contact::where('id' , 5)->get();
+    $site_name = settings::where('id' , 5 )->get() ;
+    return view('Landingpage.ServiceDetails' , compact('service',
+    'site_name',
+
+    'Title',
+
+    'Siteimage',
+    'Phonenumber',
+
+    "email" ,
+));
 }
 }

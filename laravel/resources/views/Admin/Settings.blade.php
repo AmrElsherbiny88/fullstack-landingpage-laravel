@@ -21,7 +21,7 @@
 
 
 
-    <h1 class="text-4xl text-center  mb-5 mt-5">Contact us section</h1>
+    <h1 class="text-4xl text-center  mb-5 mt-5">Site Settings </h1>
 
 
 

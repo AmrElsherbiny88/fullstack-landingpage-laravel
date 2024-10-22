@@ -55,16 +55,12 @@ class SettingsController extends Controller
         $logoName = time() . '_logo.' . $logo->getClientOriginalExtension();
         $logo->move(public_path('/assets/Settings_image'), $logoName);
         $Settingsdata->logo = 'assets/Settings_image/' . $logoName;
+        $Settingsdata->save();
+      
+    }else{
+        $Settingsdata->data = $request->input('data');
     }
-
-
-
-
-  
-   
     $Settingsdata->save();
-
-
     return redirect()->route('addSetting');
 }
 

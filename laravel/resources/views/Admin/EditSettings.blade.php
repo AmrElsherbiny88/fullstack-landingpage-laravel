@@ -25,30 +25,20 @@
 
                 
             <br> --}}
-
-            @if ( $Settingsdata->settingType == "Site_image"  )
             <h1 class="h1">{{ $Settingsdata->settingType }}</h1>
             <br/>
-        
+
+            @if ( $Settingsdata->settingType == "Site_image"  ) 
             <input type="file" class="file-input file-input-bordered w-full max-w-xs" name="logo"/>
             <br>
             <br>
-            <button type="submit" class="btn btn-primary w-full max-w-xs">Edit</button>
-
             @else
-                <h1 class="h1">{{ $Settingsdata->settingType }}</h1>
-                <br/>
                 <input type="text" placeholder="URL or Data"
                     class="input input-bordered input-primary w-full max-w-xs mb-5" name="data" value="{{ $Settingsdata->data }}"/>
-                   
                 <br>
-              
-                
-                <button type="submit" class="btn btn-primary w-full max-w-xs">Edit</button>
-            
             @endif
            
-        
+            <button type="submit" class="btn btn-primary w-full max-w-xs">Edit</button>
         </form>
 
 
