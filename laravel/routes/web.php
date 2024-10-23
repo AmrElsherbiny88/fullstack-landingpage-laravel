@@ -179,10 +179,7 @@ Route::get('/clients', [FetchingController::class, 'clients'])->name("clients");
 
 
 
-
-Route::get('/TermsandConditions', function () {
-    return view('Landingpage.terms');
-});
+Route::get('/TermsandConditions', [FetchingController::class, 'Terms'])->name("Terms");
 
 Route::get('/terms', [TermsController::class, 'addterms'])->name('addterms');
 

@@ -11,59 +11,60 @@ use App\Models\contact;
 use App\Models\services;
 use App\Models\settings;
 use App\Models\stats;
+use App\Models\terms;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class FetchingController extends Controller
 {
-    public function index()
-    {
-     
-      $solutions = Addsolution::all();
+  public function index()
+  {
 
-      $features = Addfeatures::all();
-       
-      $service1 = services::where('id' , 1)->get();
-      $service2 = services::where('id' , 2)->get();
-      $service3 = services::where('id' , 3)->get();
-      $service4 = services::where('id' , 4)->get();
+    $solutions = Addsolution::all();
 
-      $stat1 = stats::where('id' , 1)->get();
-      $stat2 = stats::where('id' , 2)->get();
-      $stat3 = stats::where('id' , 3)->get();
-      $stat4 = stats::where('id' , 4)->get();
-    
-      $description = settings::where('id' , 3 )->get() ;
-      $URL = settings::where('id' , 4)->get() ;
-      $site_name = settings::where('id' , 5 )->get() ;
-      $Title = settings::where('id' , 6 )->get() ;
-      $Siteimage = settings::where('id' , 7 )->get() ;
-      $Phonenumber = contact::where('id' , 6)->get();
-      $email = contact::where('id' , 5)->get();
-      $clients = Addclient::all();
+    $features = Addfeatures::all();
 
-      return view('Landingpage.welcome', compact(
-        
+    $service1 = services::where('id', 1)->get();
+    $service2 = services::where('id', 2)->get();
+    $service3 = services::where('id', 3)->get();
+    $service4 = services::where('id', 4)->get();
+
+    $stat1 = stats::where('id', 1)->get();
+    $stat2 = stats::where('id', 2)->get();
+    $stat3 = stats::where('id', 3)->get();
+    $stat4 = stats::where('id', 4)->get();
+
+    $description = settings::where('id', 3)->get();
+    $URL = settings::where('id', 4)->get();
+    $site_name = settings::where('id', 5)->get();
+    $Title = settings::where('id', 6)->get();
+    $Siteimage = settings::where('id', 7)->get();
+    $Phonenumber = contact::where('id', 6)->get();
+    $email = contact::where('id', 5)->get();
+    $clients = Addclient::all();
+
+    return view('Landingpage.welcome', compact(
+
       'solutions',
-      
-      "features",
-      
-      "service1",
-      
-      "service2" ,
 
-      "service3" ,
-      
+      "features",
+
+      "service1",
+
+      "service2",
+
+      "service3",
+
       "service4",
 
-      "stat1" ,
+      "stat1",
 
-      "stat2" ,
+      "stat2",
 
-      "stat3" ,
+      "stat3",
 
-      "stat4" ,
-      
+      "stat4",
+
       'clients',
 
       'description',
@@ -77,81 +78,84 @@ class FetchingController extends Controller
       'Siteimage',
       'Phonenumber',
 
-      "email" ,
-    
-    
+      "email",
+
+
     ));
-    }
+  }
 
 
-    public function contactUs(){ 
+  public function contactUs()
+  {
 
-      $facebook = contact::where('id' , 1)->get();
-      $github = contact::where('id' , 2)->get();
-      $instagram = contact::where('id' , 3)->get();
-      $Maplocation = contact::where('id' , 4)->get();
-      $email = contact::where('id' , 5)->get();
-      $Phonenumber = contact::where('id' , 6)->get();
-      $linkedin = contact::where('id' ,7)->get();
-      $twitter = contact::where('id' ,8)->get();
-      $site_name = settings::where('id' , 5 )->get() ;
-      $Title = settings::where('id' , 6 )->get() ;
-      $Siteimage = settings::where('id' , 7 )->get() ;
-      $service1 = services::where('id' , 1)->get();
-      $service2 = services::where('id' , 2)->get();
-      $service3 = services::where('id' , 3)->get();
-      $service4 = services::where('id' , 4)->get();
-      return view('Landingpage.contact', compact('facebook',
-      
+    $facebook = contact::where('id', 1)->get();
+    $github = contact::where('id', 2)->get();
+    $instagram = contact::where('id', 3)->get();
+    $Maplocation = contact::where('id', 4)->get();
+    $email = contact::where('id', 5)->get();
+    $Phonenumber = contact::where('id', 6)->get();
+    $linkedin = contact::where('id', 7)->get();
+    $twitter = contact::where('id', 8)->get();
+    $site_name = settings::where('id', 5)->get();
+    $Title = settings::where('id', 6)->get();
+    $Siteimage = settings::where('id', 7)->get();
+    $service1 = services::where('id', 1)->get();
+    $service2 = services::where('id', 2)->get();
+    $service3 = services::where('id', 3)->get();
+    $service4 = services::where('id', 4)->get();
+    return view('Landingpage.contact', compact(
+      'facebook',
+
       "github",
-      
-      "instagram",
-      
-      "Maplocation" ,
 
-      "email" ,
-      
+      "instagram",
+
+      "Maplocation",
+
+      "email",
+
       "Phonenumber",
 
-      "linkedin" ,
+      "linkedin",
 
-      "twitter" ,
+      "twitter",
 
-      
+
       'site_name',
 
       'Title',
 
       'Siteimage',
       "service1",
-      
-      "service2" ,
 
-      "service3" ,
-      
+      "service2",
+
+      "service3",
+
       "service4",
 
- 
+
     ));
-
-    }
-
+  }
 
 
 
-    public function projects(){ 
 
-      $projects = Addproject::all();
-      $site_name = settings::where('id' , 5 )->get() ;
-      $Title = settings::where('id' , 6 )->get() ;
-      $Siteimage = settings::where('id' , 7 )->get() ;
-      $Phonenumber = contact::where('id' , 6)->get();
-      $email = contact::where('id' , 5)->get();
-      $service1 = services::where('id' , 1)->get();
-      $service2 = services::where('id' , 2)->get();
-      $service3 = services::where('id' , 3)->get();
-      $service4 = services::where('id' , 4)->get();
-      return view('Landingpage.portfolio', compact('projects',
+  public function projects()
+  {
+
+    $projects = Addproject::all();
+    $site_name = settings::where('id', 5)->get();
+    $Title = settings::where('id', 6)->get();
+    $Siteimage = settings::where('id', 7)->get();
+    $Phonenumber = contact::where('id', 6)->get();
+    $email = contact::where('id', 5)->get();
+    $service1 = services::where('id', 1)->get();
+    $service2 = services::where('id', 2)->get();
+    $service3 = services::where('id', 3)->get();
+    $service4 = services::where('id', 4)->get();
+    return view('Landingpage.portfolio', compact(
+      'projects',
       'site_name',
 
       'Title',
@@ -159,74 +163,96 @@ class FetchingController extends Controller
       'Siteimage',
       'Phonenumber',
 
-      "email" ,
+      "email",
       "service1",
-      
-      "service2" ,
 
-      "service3" ,
-      
+      "service2",
+
+      "service3",
+
       "service4",
     ));
+  }
 
-    }
 
+  public function projectdetails($id)
+  {
+    $project = Addproject::where('id', $id)->get();
+    $clients = Addclient::all();
 
-    public function projectdetails($id){
-      $project = Addproject::where('id' , $id)->get();
-      $clients = Addclient::all();
+    $service1 = services::where('id', 1)->get();
+    $service2 = services::where('id', 2)->get();
+    $service3 = services::where('id', 3)->get();
+    $service4 = services::where('id', 4)->get();
+    $site_name = settings::where('id', 5)->get();
+    $Title = settings::where('id', 6)->get();
+    $Siteimage = settings::where('id', 7)->get();
+    $Phonenumber = contact::where('id', 6)->get();
+    $email = contact::where('id', 5)->get();
 
-      $service1 = services::where('id' , 1)->get();
-      $service2 = services::where('id' , 2)->get();
-      $service3 = services::where('id' , 3)->get();
-      $service4 = services::where('id' , 4)->get();
-      $site_name = settings::where('id' , 5 )->get() ;
-      $Title = settings::where('id' , 6 )->get() ;
-      $Siteimage = settings::where('id' , 7 )->get() ;
-      $Phonenumber = contact::where('id' , 6)->get();
-      $email = contact::where('id' , 5)->get();
+    return view('Landingpage.projectDetails', compact(
+      'project',
+      "clients",
+      "service1",
 
-      return view('Landingpage.projectDetails' , compact('project' , "clients",
-    "service1",
-      
-      "service2" ,
+      "service2",
 
-      "service3" ,
-      
+      "service3",
+
       "service4",
 
-      
+
       'site_name',
 
       'Title',
 
       'Siteimage',
-      
+
       'Phonenumber',
 
-      "email" ,
-    
-    ));
+      "email",
 
-    
-      
+    ));
+  }
+
+
+  public function Terms()
+  {
+
+    $terms = terms::all();
+    $service1 = services::where('id', 1)->get();
+    $service2 = services::where('id', 2)->get();
+    $service3 = services::where('id', 3)->get();
+    $service4 = services::where('id', 4)->get();
+    $site_name = settings::where('id', 5)->get();
+    $Title = settings::where('id', 6)->get();
+    $Siteimage = settings::where('id', 7)->get();
+    $Phonenumber = contact::where('id', 6)->get();
+    $email = contact::where('id', 5)->get();
+    return view('Landingpage.terms', compact(
+      "service1",
+
+      "service2",
+
+      "service3",
+
+      "service4",
+
+
+      'site_name',
+
+      'Title',
+
+      'Siteimage',
+
+      'Phonenumber',
+
+      "email",
+      "terms"
+
+    ));
   }
 
   
-  // public function footer(){ 
-
-  //   $email = contact::where('id' , 5)->get();
-  //   $Phonenumber = contact::where('id' , 6)->get();
-  //   $site_name = settings::where('id' , 5 )->get() ;
-  //   $Siteimage = settings::where('id' , 7 )->get() ;
-  //   return view('components.footer', compact(
-      
-  //     'email',
-  //     'Phonenumber',
-  //     'site_name',
-  //     'Siteimage',
-  // ));
-
-  // }
 
 }

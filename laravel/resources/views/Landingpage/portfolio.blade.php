@@ -19,31 +19,32 @@
     <x-loading />
     <!-- loading page end -->+
 
-    <x-Navbar :name="$site_name"/>
+    <x-Navbar :name="$site_name" />
 
     <section class="containerrr text-center col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-top:150px;">
         <div class="row">
-          
 
-@foreach ($projects as $item)
-            <div data-aos="fade-up" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-5">
-                <div class="card" style="">
-                    <img src="{{ $item->Thumbnail }}" class="card-img-top" alt="..." style="width: 100%; height: 200px;">
-                    <div class="card-body">
-                        <h5 class="card-title h2">{{$item->title}}</h5>
-                        <p class="card-text summ">{{$item->project_summary}}</p>
-                        <a href="{{ route('projectdetails', $item->id) }}" class="btn btn-primary link text-white">See the project</a>
+
+            @foreach ($projects as $item)
+                <div data-aos="fade-up" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-5">
+                    <div class="card" style="">
+                        <img src="{{ $item->Thumbnail }}" class="card-img-top" alt="..."
+                            style="width: 100%; height: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title h2">{{ $item->title }}</h5>
+                            <p class="card-text summ">{{ $item->project_summary }}</p>
+                            <a href="{{ route('projectdetails', $item->id) }}"
+                                class="btn btn-primary link text-white">See the project</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
- @endforeach
+            @endforeach
         </div>
     </section>
 
 
 
-{{-- 
+    {{-- 
     <!-- filter start -->
     <span onclick="openfilter()">
 
@@ -97,10 +98,11 @@
 
 
 
-    <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber"  :email="$email" :sitename="$site_name" :serviceone="$service1" :servicetwo="$service2" :serviceth="$service3" :servicef="$service4"/>
+    <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber" :email="$email" :sitename="$site_name" :serviceone="$service1"
+        :servicetwo="$service2" :serviceth="$service3" :servicef="$service4" />
 
 
-{{-- 
+    {{-- 
     <!-- filter bar script -->
     <script>
         function openfilter() {

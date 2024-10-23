@@ -11,7 +11,7 @@ class TermsController extends Controller
     public function addterms() {
         $termsdata = terms::all();
         
-        return view('Admin.Terms' , 'Landingpage.terms'  , compact('termsdata'));
+        return view('Admin.Terms', compact('termsdata'));
     
     }
 
