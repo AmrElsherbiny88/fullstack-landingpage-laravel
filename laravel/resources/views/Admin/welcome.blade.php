@@ -139,7 +139,7 @@
             </a>
 
 
-            <a href="/register">
+            <a href="/HeroSection">
                 <button>
                     <i class="fa-solid fa-house"></i>
                     <span class="btm-nav-label">Edit Home</span>

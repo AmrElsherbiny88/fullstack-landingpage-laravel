@@ -29,8 +29,11 @@
         <div class="containerrr">
 
             <h1>
-                @foreach ($name as $item)
-                    <a href="#" class="logoo">{{ $item->data }}</a>
+                @foreach ($siteimage as $item)
+                <a href="/">
+                    <img style="max-height: 70px !important; max-width:100px !important ;scale:1.5;" src="{{ asset($item->logo) }}" alt="" srcset="">
+                </a>
+                   
                 @endforeach
 
             </h1>

@@ -19,28 +19,28 @@
     <x-loading />
     <!-- loading page end -->+
 
-    <x-Navbar :name="$site_name" />
+    <x-Navbar :siteimage="$Siteimage" :name="$site_name" />
 
-    <section class="containerrr text-center col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-top:150px;">
+    <section class="containerrr text-center col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-top:110px;">
         <div class="row">
-
-
             @foreach ($projects as $item)
                 <div data-aos="fade-up" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-5">
-                    <div class="card" style="">
-                        <img src="{{ $item->Thumbnail }}" class="card-img-top" alt="..."
-                            style="width: 100%; height: 200px;">
+                    <div class="card " style="height: 370px ; border-radius: 40px ;">
+                        <img src="{{ $item->Thumbnail }}" class="card-img-top bri" alt="..." style="width: 100%; height: 200px;">
                         <div class="card-body">
-                            <h5 class="card-title h2">{{ $item->title }}</h5>
-                            <p class="card-text summ">{{ $item->project_summary }}</p>
-                            <a href="{{ route('projectdetails', $item->id) }}"
-                                class="btn btn-primary link text-white">See the project</a>
+                            <h5 class="card-title h2">{{ \Illuminate\Support\Str::limit($item->title, 22, '...') }}</h5>
+                            <p class="card-text summ">
+                                {{ \Illuminate\Support\Str::limit($item->project_summary, 80, '...') }}
+                            </p>
+                            <a href="{{ route('projectdetails', $item->id) }}" class="btn btn-primary link text-white">See the project</a>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
     </section>
+    
+    
 
 
 

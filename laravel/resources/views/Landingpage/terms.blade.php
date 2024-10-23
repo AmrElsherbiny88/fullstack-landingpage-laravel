@@ -32,20 +32,22 @@
 
 
     <div class="navv">
-        <x-Navbar :name="$site_name" />
+        <x-Navbar :siteimage="$Siteimage" :name="$site_name" />
     </div>
 
     <!-- loading page start -->
     <x-loading />
     <!-- loading page end -->
 
+    
 
     <section style=" 
   
-  padding:100px 50px 15px !important;
+  padding:120px 50px 15px !important;
  
   
   color:black !important ;">
+  <h1 class="h1 text-center">Terms and Conditions </h1>
         @foreach ($terms as $terms)
             <p>{!! $terms->terms !!}</p>
         @endforeach

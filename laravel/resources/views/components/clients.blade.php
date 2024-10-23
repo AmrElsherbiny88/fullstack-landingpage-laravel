@@ -85,7 +85,7 @@
             @foreach ($clients as $client)
                 <li class="splide__slide" style="margin-left: 40px;">
                     <a href="{{ $client->siteURL }}">
-                        <img src="{{ $client->logo }}" alt="Logo" width="100px" height="100px">
+                        <img src="{{ $client->logo }}" alt="Logo" width="70px" height="70px">
                     </a>
 
                 </li>
@@ -114,7 +114,7 @@
                     perPage: 3, // Show 2 logos per slide on tablets
                 },
                 480: {
-                    perPage: 2, // Show 1 logo per slide on small screens
+                    perPage: 5, // Show 1 logo per slide on small screens
                 },
             },
         }).mount();

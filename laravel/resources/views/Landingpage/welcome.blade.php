@@ -62,7 +62,7 @@
     - #HEADER
   -->
 
-    <x-Navbar :name="$site_name" />
+    <x-Navbar :siteimage="$Siteimage" :name="$site_name" />
 
 
     <!-- loading page start -->
