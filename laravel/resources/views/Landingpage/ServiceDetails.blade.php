@@ -30,7 +30,7 @@
   
 
 <div class="navv">
-<x-Navbar/>
+  <x-Navbar :name="$site_name"/>
 </div>
 
   <!-- loading page start -->
@@ -89,67 +89,52 @@
 </section>
 
 
-<section class="section features" id="features">
+           <!--
+        - #FEATURES
+      -->
+
+      <section class="section features" id="features">
         <div class="containerrr">
 
-          <div class="features-content">
+            <div class="features-content">
 
-            <h2 data-aos="fade-up" class="h2 section-title">Our Awesome Features in web development</h2>
+                <h2 data-aos="fade-up" class="h2 section-title">Our Awesome Features To Serve You</h2>
 
-            <p data-aos="fade-up" class="section-text">
-            Creating a website your company and electronic solutions to make your business successful was never easy, Runsoft made it easy.
-            </p>
+                <p data-aos="fade-up" class="section-text">
+                    Creating an identity and marketing for your company and electronic solutions to make your
+                    business successful was never easy, Runsoft made it easy.
+                </p>
 
-            <ul class="features-list">
+                <ul class="features-list">
+                    @foreach ($features as $feature)
+                        <li data-aos="fade-right" class="features-item">
+                            <img src="{{ asset($feature->icon) }}" width="26" height="26" loading="lazy"
+                                aria-hidden="true" class="item-icon">
 
-              <li data-aos="fade-right" class="features-item">
-                <img src="{{ asset('images/features-icon-1.svg') }}" width="26" height="26" loading="lazy" aria-hidden="true"
-                  class="item-icon">
+                            <h3 class="item-title">{{ $feature->description }}</h3>
+                        </li>
+                    @endforeach
 
-                <h3 class="item-title">high quality </h3>
-              </li>
+                </ul>
 
-              <li data-aos="fade-right" class="features-item">
-                <img src="{{ asset('images/features-icon-2.svg') }}" width="26" height="26" loading="lazy" aria-hidden="true"
-                  class="item-icon">
+            </div>
 
-                <h3 class="item-title">Fast work </h3>
-              </li>
+            <div data-aos="fade-right" class="banner-wrapper">
 
-              <li data-aos="fade-right" class="features-item">
-                <img src="{{ asset('images/features-icon-3.svg') }}" width="26" height="26" loading="lazy" aria-hidden="true"
-                  class="item-icon">
+                <figure class="features-banner one">
+                    <img src="{{ asset('images/features-banner-1.gif') }}" width="600" height="500"
+                        loading="lazy" alt="features image" class="w-100">
+                </figure>
 
-                <h3 class="item-title">Clean code</h3>
-              </li>
+                <figure class="features-banner two">
+                    <img src="{{ asset('images/features-banner-2.png') }}" width="436" height="311"
+                        loading="lazy" alt="features image" class="w-100">
+                </figure>
 
-              <li data-aos="fade-right" class="features-item">
-                <img src="{{ asset('images/features-icon-4.svg') }}" width="26" height="26" loading="lazy" aria-hidden="true"
-                  class="item-icon">
-
-                <h3 class="item-title">support 24/7</h3>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <div data-aos="fade-right" class="banner-wrapper">
-
-            <figure class="features-banner one">
-              <img src="{{ asset('images/features-banner-1.gif') }}" width="600" height="500" loading="lazy"
-                alt="features image" class="w-100">
-            </figure>
-
-            <figure class="features-banner two">
-              <img src="{{ asset('images/features-banner-2.png') }}" width="436" height="311" loading="lazy"
-                alt="features image" class="w-100">
-            </figure>
-
-          </div>
+            </div>
 
         </div>
-      </section>
+    </section>
 
       <svg data-aos="fade-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,64L80,74.7C160,85,320,107,480,133.3C640,160,800,192,960,186.7C1120,181,1280,139,1360,117.3L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
 
@@ -164,7 +149,7 @@
     <ion-icon name="chevron-up"></ion-icon>
   </a>
 
-  <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber"  :email="$email" :sitename="$site_name"/>
+  <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber"  :email="$email" :sitename="$site_name" :serviceone="$service1" :servicetwo="$service2" :serviceth="$service3" :servicef="$service4"/>
 
  <!-- MDB -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

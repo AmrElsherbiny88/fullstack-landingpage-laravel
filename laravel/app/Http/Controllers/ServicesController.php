@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Addfeatures;
 use App\Models\contact;
 use App\Models\services;
 use App\Models\settings;
@@ -89,6 +90,11 @@ public function ServiceDetails($id) {
     $Phonenumber = contact::where('id' , 6)->get();
     $email = contact::where('id' , 5)->get();
     $site_name = settings::where('id' , 5 )->get() ;
+    $service1 = services::where('id' , 1)->get();
+    $service2 = services::where('id' , 2)->get();
+    $service3 = services::where('id' , 3)->get();
+    $service4 = services::where('id' , 4)->get();
+    $features = Addfeatures::all();
     return view('Landingpage.ServiceDetails' , compact('service',
     'site_name',
 
@@ -98,6 +104,14 @@ public function ServiceDetails($id) {
     'Phonenumber',
 
     "email" ,
+    "service1",
+      
+    "service2" ,
+
+    "service3" ,
+    
+    "service4",
+    "features",
 ));
 }
 }

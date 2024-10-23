@@ -62,7 +62,7 @@
     - #HEADER
   -->
 
-    <x-Navbar />
+    <x-Navbar :name="$site_name"/>
 
 
     <!-- loading page start -->
@@ -456,7 +456,7 @@
     - #FOOTER
   -->
 
-    <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber"  :email="$email" :sitename="$site_name"/>
+    <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber"  :email="$email" :sitename="$site_name" :serviceone="$service1" :servicetwo="$service2" :serviceth="$service3" :servicef="$service4"/>
 
 
     <!--

@@ -26,7 +26,10 @@
     <div class="containerrr">
 
       <h1>
-        <a href="#" class="logoo">Runsoft</a>
+        @foreach ($name as $item)
+        <a href="#" class="logoo">{{$item->data}}</a>
+        @endforeach
+
       </h1>
 
       <nav class="navbarrr container" data-navbar>

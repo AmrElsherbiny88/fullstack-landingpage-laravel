@@ -19,7 +19,7 @@
     <x-loading />
     <!-- loading page end -->+
 
-    <x-Navbar />
+    <x-Navbar :name="$site_name"/>
 
     <section class="containerrr text-center col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-top:150px;">
         <div class="row">
@@ -97,7 +97,7 @@
 
 
 
-    <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber"  :email="$email" :sitename="$site_name"/>
+    <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber"  :email="$email" :sitename="$site_name" :serviceone="$service1" :servicetwo="$service2" :serviceth="$service3" :servicef="$service4"/>
 
 
 {{-- 

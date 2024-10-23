@@ -19,7 +19,7 @@
   
 
 
-<x-Navbar/>
+  <x-Navbar :name="$site_name"/>
 
   <!-- loading page start -->
   <x-loading/>
@@ -28,18 +28,18 @@
 <!-- contact form -->
 <section class="containerrr text-center col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-top:150px;">
   <div class="row">
-    <div data-aos="fade-up" class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-5">
+    <div data-aos="fade-up" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5">
     <h1 class="h1">Let's talk</h1>
     <h2 class="h2">Send Us and we will respond to you</h2>
     </div>
 
-    <form data-aos="fade-right" class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+    {{-- <form data-aos="fade-right" class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
          <input class="mb-5" type="text" placeholder="Enter your name">
          <input class="mb-5" type="email" placeholder="Enter your email">
           <textarea placeholder="enter your message"></textarea>
 
           <button class="btnn btnn-primary w-100">Send</button>
-    </form>
+    </form> --}}
   </div>
 </section>
 
@@ -208,7 +208,7 @@
     <ion-icon name="chevron-up"></ion-icon>
   </a>
 
-  <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber"  :email="$email" :sitename="$site_name"/>
+  <x-footer :siteimage="$Siteimage" :phonenumber="$Phonenumber"  :email="$email" :sitename="$site_name" :serviceone="$service1" :servicetwo="$service2" :serviceth="$service3" :servicef="$service4"/>
 
 
 

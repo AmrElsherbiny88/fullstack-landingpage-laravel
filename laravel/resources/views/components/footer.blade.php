@@ -58,25 +58,32 @@
         <p class="footerrr-list-title">Services</p>
       </li>
 
-      <li>
-        <a href="/ServiceDetails" class="footerrr-link">Web Design</a>
-      </li>
+ @foreach ($serviceone as $item)
+ <li>
+  <a href="{{ route('ServiceDetails', $item->id) }}" class="footerrr-link">{{ $item->Title }}</a>
+</li>
+ @endforeach
+      
 
-      <li>
-        <a href="/ServiceDetails" class="footerrr-link">Web Development</a>
-      </li>
+ @foreach ($servicetwo as $item)
+ <li>
+  <a href="{{ route('ServiceDetails', $item->id) }}" class="footerrr-link">{{ $item->Title }}</a>
+</li>
+ @endforeach
 
-      <li>
-        <a href="/ServiceDetails" class="footerrr-link">Mobile App development</a>
-      </li>
+ @foreach ($serviceth as $item)
+ <li>
+  <a href="{{ route('ServiceDetails', $item->id) }}" class="footerrr-link">{{ $item->Title }}</a>
+</li>
+ @endforeach
 
-      <li>
-        <a href="/ServiceDetails" class="footerrr-link">Full identity and marketing plans</a>
-      </li>
+ @foreach ($servicef as $item)
+ <li>
+  <a href="{{ route('ServiceDetails', $item->id) }}" class="footerrr-link">{{ $item->Title }}</a>
+</li>
+ @endforeach
 
-      <li>
-        <a href="/ServiceDetails" class="footerrr-link">Social media marketing and ADs</a>
-      </li>
+  
 
     </ul>
 
@@ -164,7 +171,7 @@
     <ul class="footerrr-bottom-list">
 
       <li>
-        <a href="/TermsandConditions" class="footerrr-bottom-link">Terms & Conditions</a>
+        <a href="#" class="footerrr-bottom-link">Terms & Conditions</a>
       </li>
 
     </ul>

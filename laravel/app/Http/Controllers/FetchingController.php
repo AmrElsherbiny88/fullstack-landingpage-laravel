@@ -97,7 +97,10 @@ class FetchingController extends Controller
       $site_name = settings::where('id' , 5 )->get() ;
       $Title = settings::where('id' , 6 )->get() ;
       $Siteimage = settings::where('id' , 7 )->get() ;
-
+      $service1 = services::where('id' , 1)->get();
+      $service2 = services::where('id' , 2)->get();
+      $service3 = services::where('id' , 3)->get();
+      $service4 = services::where('id' , 4)->get();
       return view('Landingpage.contact', compact('facebook',
       
       "github",
@@ -120,7 +123,13 @@ class FetchingController extends Controller
       'Title',
 
       'Siteimage',
- 
+      "service1",
+      
+      "service2" ,
+
+      "service3" ,
+      
+      "service4",
 
  
     ));
@@ -138,6 +147,10 @@ class FetchingController extends Controller
       $Siteimage = settings::where('id' , 7 )->get() ;
       $Phonenumber = contact::where('id' , 6)->get();
       $email = contact::where('id' , 5)->get();
+      $service1 = services::where('id' , 1)->get();
+      $service2 = services::where('id' , 2)->get();
+      $service3 = services::where('id' , 3)->get();
+      $service4 = services::where('id' , 4)->get();
       return view('Landingpage.portfolio', compact('projects',
       'site_name',
 
@@ -147,6 +160,13 @@ class FetchingController extends Controller
       'Phonenumber',
 
       "email" ,
+      "service1",
+      
+      "service2" ,
+
+      "service3" ,
+      
+      "service4",
     ));
 
     }
